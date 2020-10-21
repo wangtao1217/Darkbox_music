@@ -1,21 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 
-const Icon = styled.div`
-  height: 40px;
-  width: 40px;
+const Item = styled.div`
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${(props) => props.size};
+  font-size: ${(props) => (props.size ? props.size : "21px")};
   color: ${(props) => props.theme.primary};
   /* margin: 0 5px; */
+  margin: ${(props) => (props.margin ? props.margin : "0px")};
 `;
 
-const IconContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 0 5% 0 0;
-`;
-
-export { Icon, IconContainer };
+export default (props) => {
+  const { name } = props;
+  const icon = {
+    // home: ,
+    like:<i class="fas fa-star"></i>,
+    album: <i class="fas fa-record-vinyl" />,
+    play: <i class="fas fa-play" />,
+    stop: <i class="fas fa-headphones-alt" />,
+    pre: <i class="fas fa-forward" />,
+    next: <i class="fas fa-backward" />,
+    list:<i class="fas fa-stream"></i>,
+    repeat_one:<i class="far fa-repeat-1-alt"/>,
+    repeat:<i class="fad fa-repeat"></i>,
+    // mode:{repeat:,},
+  };
+  return <Item onClick={()=>{
+   props.onClick()
+  }}>{icon[name]}</Item>;
+};

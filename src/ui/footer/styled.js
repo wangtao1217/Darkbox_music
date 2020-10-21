@@ -5,22 +5,20 @@ const Main = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
+  right:0;
   display: flex;
   align-items: center;
-  height: 100px;
+  justify-content:center;
+  height: 10%;
   width: 100vw;
-  padding: 0 20px;
-  background-color: white;
-  box-shadow: 0px -6px 12px 0px #f6f6f6;
+  padding: 0 10px;
+  z-index:10;
+  ${'' /* background-color: black; */}
+  /* box-shadow: 0px -6px 12px 0px #f6f6f6; */
+  ${'' /* filter:blur(40%); */}
 `;
 
-const Imag = styled.div`
-  display: flex;
-  height: 60px;
-  width: 60px;
-  background: url(${(props) => props.jpg}) center 100%;
-  margin-right: 10px;
-`;
+
 
 const Text = styled.div`
   font-size: ${(props) => props.size};
@@ -36,6 +34,9 @@ const TextDiv = styled.div`
   font-family:fantasy;
   line-height:30px;
   letter-spacing:0.3em;
+  ${'' /* margin-right:4%; */}
 `;
-
-export { Main, Imag, Text, TextDiv };
+const Div = styled.div`
+z-index:2;
+`;
+export { Main, Text, TextDiv, Div };
