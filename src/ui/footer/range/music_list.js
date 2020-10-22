@@ -26,7 +26,7 @@ const play_list = [
 
 export default (props) => {
   return (
-    <Play_list move={ props.move? "50vw" : "0px"}>
+    <Play_list move={ props.move? "0px" : "40vw"}>
       <Table>
         <Body>
           {play_list.map((val, key) => {

@@ -11,6 +11,7 @@ const Div = styled.div`
   box-sizing: border-box;
   ${'' /* background-color:#e6e6e6; */}
   /* background-color:rgba(127,127,200,.2); */
+  ${'' /* overflow: scroll; */}
   margin-right:10px;
 `;
 
@@ -24,7 +25,14 @@ const Icon = styled.div`
 
 
 const Main = styled.div`
-position:relative;
+box-sizing: border-box;
+  section{
+    overflow:scroll;
+    height:90vh;
+    width:100%;
+    display:flex;
+  }
+  position:relative;
   display: flex;
   height: 100vh;
   width: 100vw;

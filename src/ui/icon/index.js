@@ -21,6 +21,7 @@ export default (props) => {
     album: <i class="fas fa-record-vinyl" />,
     play: <i class="fas fa-play" />,
     stop: <i class="fas fa-headphones-alt" />,
+    search:<i class="fad fa-repeat"></i>,
     pre: <i class="fas fa-forward" />,
     next: <i class="fas fa-backward" />,
     list:<i class="fas fa-stream"></i>,

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const Ul = styled.div`
-  width: 18%;
+  width: 100%;
   user-select: none;
-  box-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.2);
+  ${'' /* box-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.2); */}
   min-width:200px;
 `;
 
@@ -13,7 +13,7 @@ const Li = styled.li`
   padding: 0 10%;
   list-style: none;
   color: black;
-  font-size: 1.2em;
+  font-size: 1.1em;
   padding: 16px 24px;
   cursor: pointer;
   transition: 0.3s;
@@ -32,10 +32,11 @@ const Li = styled.li`
   }
 `;
 const Div = styled.div`
-  color: black;
-  cursor: pointer;
+  width:20%;
+  border-right:2px solid #f6f6f6;
   transition: 0.3s;
-  background-color: ${(props) => (props.open ? "#f8f8f8" : null)};
+  background-color:${p=>p.theme.primary};
+  color:${p=>p.theme.text};
 `;
 const Icon = styled.div`
   height: 40px;
@@ -43,4 +44,8 @@ const Icon = styled.div`
   background-color: black;
 `;
 
-export { Ul, Li, Div, Icon };
+const Subcontain = styled.div`
+  width:100%;
+`;
+
+export { Ul, Li, Div, Icon, Subcontain };

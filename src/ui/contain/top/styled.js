@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-import { Div } from "../../styled";
-
-const Search = styled.input`
+const Input = styled.input`
   display: flex;
   align-items: center;
   height: 40px;
@@ -14,20 +12,32 @@ const Search = styled.input`
   outline: none;
   border: none;
   font-size: 1.2em;
+  border-bottom:2px solid #e6e6e6;
   color: ${(props) => props.theme.text};
-  background-color: ${(props) => props.theme.bgColor};
+  transition:.4s;
+  &:focus{
+    background-color: ${(props) => props.theme.bgColor};
+  }
 `;
 
-const Avater = styled.div`
-  height: 40px;
-  width: 40px;
-  margin-right:10px;
-  background-color: tomato;
-  border-radius: 50%;
+
+const Top = styled.div`
+  height:60px;
+  width:100%;
+  display:flex;
+  padding:10px 12px;
+  border-bottom:2px solid #e6e6e6;
+  box-sizing: border-box;
 `;
 
-const Topdiv = styled(Div)`
-  justify-content: space-between;
+const Span = styled.div`
+  span{
+    float:left;
+    color:${p=>p.theme.primary};
+    display:flex;
+    flex-wrap:nowrap;
+  }
 `;
 
-export { Search, Avater, Topdiv };
+
+export { Input, Top, Span };

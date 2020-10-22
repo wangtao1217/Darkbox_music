@@ -19,7 +19,7 @@ const Time = (props) => {
   const { currentTime, duration } = Music;
   const song = music();
   console.log(source.move);
-
+  console.log(song)
   return (
     <>
       <audio src={song.url} ref={Music} />
