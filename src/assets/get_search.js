@@ -1,17 +1,17 @@
+import { useContext } from "react";
+import { Mycontext } from "./global_state";
+
 const axios = require("axios");
 
-export default async function get_search(val) {
- 
-const result = await axios
-    .get(`http://localhost:3000/search?keywords=${val}`)
-    .then((res) => {
-      return res.data;
-      // console.log(res.data.result)
-    })
-    .catch((rej) => {
-      return "error";
-    });
-
-  return await JSON.parse(JSON.stringify(result))
- 
+export default  function get_search(val) {
+  return new Promise((resolve,reject)=>{
+    axios({
+        url: `http://localhost:3000/search?keywords=`,
+        params: {
+          keywords: val,
+        },
+  })
+  .then(res=>resolve(res.data.result))
+  .catch(err=>reject(err.data))
+  })
 }

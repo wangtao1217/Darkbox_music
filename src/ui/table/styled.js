@@ -10,6 +10,7 @@ const Task = styled.li``;
 
 const Table = styled.div`
   width: 100%;
+  color:${p=>p.theme.text};
 `;
 
 const ImagContainer = styled.div`
@@ -25,20 +26,24 @@ const Body = styled.div`
 const Row = styled.div`
   display: flex;
   height: 40px;
-  color: ${(p) => p.theme.primary};
+  box-sizing:border-box;
+  color: ${(p) => p.theme.text};
   ${'' /* background-color: ${(p) => p.theme.bgColor}; */}
 
-  padding: 7px 10px;
+  padding: 7px 20px;
   margin-bottom: 5px;
   align-items: center;
   transition: .3s;
   &:hover{
-    box-shadow:0 0 12px 0px rgba(120,120,150,.2);
+    background-color:${p=>p.theme.text};
+    color:black;
   }
 `;
 
 const Cell = styled.span`
   display: flex;
   flex: ${(p) => p.flex?p.flex:"1"};
+  
+  overflow:hidden;
 `;
 export { Head, Task, Table, Row, Body, Cell, ImagContainer };

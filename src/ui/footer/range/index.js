@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import ReactDom from 'react-dom'
 
 
@@ -13,27 +13,29 @@ import music from "../../../assets/get_songs";
 
 
 const Time = (props) => {
-  const source = React.useContext(Mycontext);
-  const [state, setState] = useState(false);
+  const { state, dispatch, move, setMove, ref, setRef  } = useContext(Mycontext)
   const Music = useRef();
   const { currentTime, duration } = Music;
-  const song = music();
-  console.log(source.move);
+  const song = music(state.song_id?state.song_id:null);
   console.log(song)
+  setRef(Music.current)
+  console.log(state.song_id)
   return (
     <>
-      <audio src={song.url} ref={Music} />
+      <audio src={state.song_url} ref={Music} />
       <Global>
         <Span>
           <Icon size="19px" name={"next"} />
           <Icon
             size={"24px"}
-            name={state ? "play" : "stop"}
+            name={state.play ? "play" : "stop"}
             onClick={() => {
-              // state?Music.current.pause(): Music.current.play();
-              // console.log(Music.current)
-              Music.current.play();
-              setState(state ? false : true);
+              dispatch({type:"_play"})
+              if(state.play){
+                ref.pause();
+              }else{
+                ref.play()
+              }
             }}
           />
           <Icon size="19px" name={"pre"} />
@@ -45,13 +47,9 @@ const Time = (props) => {
         </Div>
         <Icon
           name="list"
-          onClick={(e) => {
-            source.setMove(source.move ? false : true);
-            // console.log(source.move)
-          }}
+          onClick={(e) => setMove(move ? false : true)}
         />
-          <Music_list move={source.move} />
-        {/* {show ? ReactDOM.createPortal(<Play_list />, document.body) : null} */}
+          <Music_list move={move} />
       </Global>
     </>
   );

@@ -2,20 +2,29 @@ import styled from "styled-components";
 
 const Main = styled.div`
   /* position:static; */
-  position: fixed;
+  position: flex;
   bottom: 0;
+  float:left;
   left: 0;
   right:0;
   display: flex;
+  flex:1;
   align-items: center;
-  justify-content:center;
-  height: 10%;
+  ${'' /* justify-content:space-between; */}
+  height: 10vh;
   width: 100vw;
-  padding: 0 10px;
+  padding: 0 20px;
   z-index:10;
-  ${'' /* background-color: black; */}
-  /* box-shadow: 0px -6px 12px 0px #f6f6f6; */
-  ${'' /* filter:blur(40%); */}
+  box-sizing:border-box;
+  ${'' /* background: #e2e2e2; */}
+  overflow:hidden;
+  ${'' /* backdrop-filter:blur(20px); */}
+  &::before{
+    content:'';
+    top:0;left:0;right:0;bottom:0;
+    background-color: rgba(100,100,100);
+    z-index:-1;
+ }
 `;
 
 

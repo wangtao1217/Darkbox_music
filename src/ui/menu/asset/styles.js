@@ -4,24 +4,23 @@ const Ul = styled.div`
   width: 100%;
   user-select: none;
   ${'' /* box-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.2); */}
-  min-width:200px;
 `;
 
 const Li = styled.li`
   display: flex;
   box-sizing: border-box;
-  padding: 0 10%;
+  padding: 10px 24px;
   list-style: none;
-  color: black;
+  color: ${p=>p.theme.text};
   font-size: 1.1em;
-  padding: 16px 24px;
   cursor: pointer;
   transition: 0.3s;
   position: relative;
   &:hover {
+    color:black;
     background-color: #f4f4f4;
   }
-  &::before {
+  ${'' /* &::before {
     content: "";
     position: absolute;
     height: 100%;
@@ -29,11 +28,14 @@ const Li = styled.li`
     background-color: ${(props) => (props.focus ? props.theme.primary: null)};
     top: 0;
     left: 0;
-  }
+  } */}
 `;
 const Div = styled.div`
-  width:20%;
-  border-right:2px solid #f6f6f6;
+  width:20vw;
+  display:flex;
+  flex-direction:column;
+  color:white;
+  ${'' /* border-right:2px solid #334854; */}
   transition: 0.3s;
   background-color:${p=>p.theme.primary};
   color:${p=>p.theme.text};

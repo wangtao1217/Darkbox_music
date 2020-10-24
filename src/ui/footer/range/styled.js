@@ -20,7 +20,7 @@ const Span = styled.div`
   justify-content:space-between;
 `;
 const Back = styled.div`
-  height: 20px;
+  height: 10px;
   width: 100%;
   margin: 0 20px;
   box-shadow: 0 0 6px 2px inset #e6e6e6;

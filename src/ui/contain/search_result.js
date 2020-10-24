@@ -1,91 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// import { Mycontext } from "../../../assets/global_state";
+import { Mycontext } from "../../assets/global_state";
+import useAudio from '../../hooks/useAudio'
+import get_songs from "../../assets/get_songs"
 
 import Container from "./styles";
 import { Head, Table, Body, Row, Cell } from "../table/styled";
 
 
-const data = [{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  }, {
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  }, {
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  }, {
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  }, {
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  }, {
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },{
-    id: "121232",
-    name: "dwdew",
-    time: "2:10",
-    author:"no body"
-  },]
-
 export default (props) => {
-  // const { result, setResult } = React.useContext(Mycontext)
+  const { result, setResult, ref } = React.useContext(Mycontext)
+  const { Event } = useAudio();
   return (
     <Container>
       <Table>
@@ -94,15 +20,20 @@ export default (props) => {
           <Cell flex="2">{"Name"}</Cell>
           <Cell flex="2">{"Time"}</Cell>
           <Cell flex="2">{"Artist"}</Cell>
+          <Cell flex="2">{"Album"}</Cell>
         </Head>
         <Body>
-          {data.map((val, key) => {
+          {result.map((val, key) => {
             return (
-              <Row key="">
+              <Row key="" onDoubleClick={e=>{
+                console.log(ref)
+                console.log(val.id)
+                Event.DobleClike(val.id)}}>
                 <Cell>{key}</Cell>
                 <Cell flex="2">{val.name}</Cell>
-                <Cell flex="2"></Cell>
-                <Cell flex="2"></Cell>
+                <Cell flex="2">{val.duration}</Cell>
+                <Cell flex="2">{"#"}</Cell>
+                <Cell flex="2">{val.album.name}</Cell>
               </Row>
             );
           })}

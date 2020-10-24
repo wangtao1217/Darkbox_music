@@ -1,18 +1,33 @@
 import React, { useState } from "react";
 
-// import { reducer } from "./reducer";
+import { reducer } from "./reducer";
 
 const Mycontext = React.createContext({
   move: false,
   setMove: () => {},
   result: null,
   setResult: () => {},
+  play: {
+    playing: false,
+    id: "",
+  },
+  state:{},
+  dispatch:()=>{},
+  ref:null,
 });
+
+const initial = {
+  play: false,
+  song_id: null,
+  song_url: null
+}
 
 const Global = (props) => {
   // const [state, dispatch] = React.useReaducer(reducer, initial_data);
   const [move, setMove] = useState(false);
-  const [result, setResult] = useState(null);
+  const [ref, setRef] = useState(null);
+  const [result, setResult] = useState([]);
+  const [ state, dispatch ] = React.useReducer(reducer, initial)
   return (
     <Mycontext.Provider
       value={{
@@ -20,6 +35,10 @@ const Global = (props) => {
         setMove,
         result,
         setResult,
+        state,
+        dispatch,
+        ref,
+        setRef,
       }}
     >
       {props.children}
