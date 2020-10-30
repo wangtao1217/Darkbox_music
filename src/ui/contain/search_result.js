@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 
 import { Mycontext } from "../../assets/global_state";
 import useAudio from '../../hooks/useAudio'
-import get_songs from "../../assets/get_songs"
+import song from "../../api/song"
 
 import Container from "./styles";
 import { Head, Table, Body, Row, Cell } from "../table/styled";
@@ -26,11 +26,11 @@ export default (props) => {
           {result.map((val, key) => {
             return (
               <Row key="" onDoubleClick={e=>{
-                console.log(ref)
-                console.log(val.id)
+                // console.log(ref)
+                // console.log(val.id)
                 Event.DobleClike(val.id)}}>
                 <Cell>{key}</Cell>
-                <Cell flex="2">{val.name}</Cell>
+                <Cell flex="3">{val.name}</Cell>
                 <Cell flex="2">{val.duration}</Cell>
                 <Cell flex="2">{"#"}</Cell>
                 <Cell flex="2">{val.album.name}</Cell>

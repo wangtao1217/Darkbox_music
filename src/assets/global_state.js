@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { reducer } from "./reducer";
+import {musicReducer} from "../reducer/playMusic";
 
 const Mycontext = React.createContext({
   move: false,
@@ -27,7 +27,7 @@ const Global = (props) => {
   const [move, setMove] = useState(false);
   const [ref, setRef] = useState(null);
   const [result, setResult] = useState([]);
-  const [ state, dispatch ] = React.useReducer(reducer, initial)
+  const [ state, dispatch ] = React.useReducer(musicReducer, initial)
   return (
     <Mycontext.Provider
       value={{

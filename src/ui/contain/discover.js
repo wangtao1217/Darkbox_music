@@ -3,10 +3,12 @@ import React from 'react'
 import List from '../table/index'
 import Container from "./styles"
 
-export default function discover() {
+const Discover = () => {
     return (
         <Container>
-            <List/>
+            
         </Container>
     )
 }
+
+export default Discover

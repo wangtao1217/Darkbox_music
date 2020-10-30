@@ -3,13 +3,15 @@ import styled from "styled-components";
 const Head = styled.div`
   display: flex;
   align-items: center;
-  padding: 12px 10px;
+  padding: 12px 20px;
 `;
 
 const Task = styled.li``;
 
 const Table = styled.div`
   width: 100%;
+  height:100%;
+  box-sizing: border-box;
   color:${p=>p.theme.text};
 `;
 
@@ -43,7 +45,8 @@ const Row = styled.div`
 const Cell = styled.span`
   display: flex;
   flex: ${(p) => p.flex?p.flex:"1"};
-  
+  text-overflow:ellipsis;
+  white-space:nowrap;
   overflow:hidden;
 `;
 export { Head, Task, Table, Row, Body, Cell, ImagContainer };

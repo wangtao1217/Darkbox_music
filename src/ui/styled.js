@@ -32,7 +32,7 @@ const Main = styled.div`
   z-index: 1;
   #abc {
     ${'' /* overflow: scroll; */}
-    height: 90vh;
+    height: calc(100% - 60px);
     width: 100%;
     display: flex;
   }

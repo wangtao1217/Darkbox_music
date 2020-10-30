@@ -8,7 +8,7 @@ const Container = styled.div`
     flex-direction:column;
     height:100%;
     width:100%;
-    padding:20px 120px;
+    padding:20px 50px;
     box-sizing:border-box;
     overflow:scroll;
     ${'' /* background-color:${p=>p.theme.bgColor}; */}

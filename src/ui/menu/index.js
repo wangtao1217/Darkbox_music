@@ -6,7 +6,6 @@ import Item from "./item";
 import Menu from "./menu";
 import data from "./asset/data";
 import Icon from "../icon/index";
-import Avater from "../avater/index";
 import { Div } from "./asset/styles"
 
 const Creator = (props) => {
@@ -32,7 +31,6 @@ const Creator = (props) => {
 const App = (props) => {
   return (
     <Div>
-      <Avater />
       <Menu>{Creator(data)}</Menu>
     </Div>
   );

@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function like() {
+const Like = () => {
     return (
         <div>
             <h1>Success</h1>
         </div>
     )
 }
+
+export default Like
