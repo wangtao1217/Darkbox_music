@@ -4,11 +4,12 @@ const Head = styled.div`
   display: flex;
   align-items: center;
   padding: 12px 20px;
+  box-sizing:border-box;
 `;
 
 const Task = styled.li``;
 
-const Table = styled.div`
+const Container = styled.div`
   width: 100%;
   height:100%;
   box-sizing: border-box;
@@ -23,14 +24,12 @@ const ImagContainer = styled.div`
   border-radius:2px;
 `;
 const Body = styled.div`
-  ${'' /* overflow: scroll; */}
 `;
 const Row = styled.div`
   display: flex;
   height: 40px;
   box-sizing:border-box;
   color: ${(p) => p.theme.text};
-  ${'' /* background-color: ${(p) => p.theme.bgColor}; */}
 
   padding: 7px 20px;
   margin-bottom: 5px;
@@ -49,4 +48,4 @@ const Cell = styled.span`
   white-space:nowrap;
   overflow:hidden;
 `;
-export { Head, Task, Table, Row, Body, Cell, ImagContainer };
+export { Head, Task, Container, Row, Body, Cell, ImagContainer };

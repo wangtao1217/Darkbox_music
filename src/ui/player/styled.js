@@ -45,7 +45,10 @@ const TextDiv = styled.div`
   letter-spacing:0.3em;
   ${'' /* margin-right:4%; */}
 `;
-const Div = styled.div`
+const Container = styled.div`
 z-index:2;
+width:200px;
+height:100%;
+${'' /* background-color:black; */}
 `;
-export { Main, Text, TextDiv, Div };
+export { Main, Text, TextDiv, Container };

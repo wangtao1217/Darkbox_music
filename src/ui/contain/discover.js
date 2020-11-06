@@ -6,7 +6,7 @@ import Container from "./styles"
 const Discover = () => {
     return (
         <Container>
-            
+            <h1>{'Successful...'}</h1>
         </Container>
     )
 }

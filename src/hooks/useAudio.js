@@ -1,32 +1,43 @@
-import React, { useState, useReducer, useContext, useRef } from "react";
+import React, { useRef } from "react";
 
-import { Mycontext } from "../assets/global_state";
-import song from "../api/song";
+import { useSetState } from "./useSetState";
 
-const useAudio = () => {
-  const [state, setState] = useState({
+const useAudio = (elProps) => {
+  let element, props;
+
+  if(React.isValidElement(elProps)){
+    element = elProps;
+    props = element.props
+  }else{
+    props = elProps
+  }
+
+
+  const [state, setState] = useSetState({
     buffered: [],
     time: 0,
     duration: 0,
-    paused: true,
+    playing: false,
     volumn: 1,
   });
 
-  const audio = useRef(null);
+  const ref = useRef(null);
 
   const Event = () => {
     return {
-      Play: () => setState({ paused: state.paused ? false : true }),
+      Play: () => {
+        setState({ playing: true })},
+      Pause: () => setState({ playing: false }),
       // update current time
       onTime: () => {
-        const el = audio.current;
+        const el = ref.current;
         if(!el) return ;
 
         setState({ time: el.currentTime });
       },
       // update music time
       onDuration: () => {
-        const el = audio.current;
+        const el = ref.current;
         if(!el) return ;
 
         const { duration } = el
@@ -35,14 +46,35 @@ const useAudio = () => {
     };
   };
 
-  const element = 'text'
+
+  const controls = {
+    play: () => setState({playing:true}),
+    // pause:,
+  };
+
+  if(element){
+    element = React.cloneElement(element,{
+      controls: false,
+      ...props,
+      ref,
+    })
+  }else{
+    element = React.createElement('audio',{
+      controls: false,
+      ...props,
+      ref,
+      
+    })
+  }
+
+  // const element =   React.createElement("audio");
   // React.createElement("audio", {
   //   controls: false,
   //   Play: Event().Play(),
   //   // ChangeVolumn: Event().ChangeVolumn(),
   // });
 
-  return [element, state, Event, audio];
+  return [element, state, Event, ref];
 };
 
 export default useAudio;

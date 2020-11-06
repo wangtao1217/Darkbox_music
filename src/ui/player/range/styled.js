@@ -62,14 +62,13 @@ const Play_list = styled.div`
   width:30vw;
   min-width:220px;
   max-width:320px;
-  ${'' /* padding:10px 7px; */}
   display:flex;
+  flex-direction:column;
   justify-content:center;
-  padding:24px 14px;
   box-sizing:border-box;
-z-index:-10;
-;
-  background-color:${p=>p.theme.primary};
+  z-index:10;
+  color:${p=>p.theme.text};
+  background-color:${p=>p.theme.compare};
   position:fixed;
   top:0;
   right:0;

@@ -1,19 +1,21 @@
 export const DEFAULT_VALUE = {
-    ARRAY: [],
-    OBJECT: {},
-    STRING: ''
+    ARRAY: "[]",
+    OBJECT: "{}",
+    STRING: ""
 }
 
 export const LocalStorageFactory = (params) => {
-    const { key, defaultvalue, raw } = params;
+    const { key, defaultvalue, raw, stringify = JSON.stringify, parse = JSON.parse } = params;
 
     const setItem = (value) => {
-        const data = window.localStorage.setItem(key, data || defaultvalue);
-    }
+        const data = stringify(value)
+        window.localStorage.setItem(key, data || defaultvalue);
+    };
 
-    const getItem = (vaalue) => {
-        const data = window.localStorage.getItem(key) || defaultvalue;
-        return data;
+    const getItem = () => {
+        console.log(localStorage.getItem(key));
+        const list = window.localStorage.getItem(key) || defaultvalue;
+        return parse(list);
     }
 
     const removeItem = (value) =>  window.localStorage.removeItem(key);

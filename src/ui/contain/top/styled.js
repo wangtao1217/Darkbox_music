@@ -15,10 +15,7 @@ const Input = styled.input`
   font-size: 1.2em;
   color: ${(props) => props.theme.text};
   transition:.4s;
-  background-color:rgba(0,0,0,.3);
-  ${'' /* &:focus{
-    border-bottom:2px solid #e6e6e6;
-  } */}
+  background-color:${p=>p.theme.compare};
 `;
 
 

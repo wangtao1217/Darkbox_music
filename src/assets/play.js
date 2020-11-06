@@ -1,7 +1,7 @@
 import { DEFAULT_VALUE, LocalStorageFactory } from "./localstorage";
 
 
-const KEY = {
+export const KEY = {
     PLAY_HISTORY: '__playHistory',
     PLAY_LIST: '__playList',
     PLAY_MODE: '__playMode'
@@ -13,10 +13,16 @@ export const playHistory = LocalStorageFactory({
 });
 
 export const setPlayHistory = (music) => {
-    const list = playHistory.getItem().slice(0,27);
+    let list =playHistory.getItem()||[];
+    let index = list.findIndex(item => item.id === music.id)
 
-    //
-    //
+    if(index>-1){
+        list.splice(index,1);
+    }
+    
+    list.unshift(music)
+    console.log(list)
+    playHistory.setItem(list)
 
     return list;
 };

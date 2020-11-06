@@ -12,7 +12,7 @@ const Creator = (props) => {
   return props.map((item, key) => {
     if (item.type === "item") {
       return (
-        <Link to={item.name}>
+        <Link className='link' to={item.name}>
           <Item key={key} val={item.name} index={item.name} />
         </Link>
       );

@@ -2,16 +2,20 @@ import styled from "styled-components";
 
 
 const Div = styled.div`
-  width:18vw;
+  width:270px;
   display:flex;
   flex-direction:column;
   color:white;
   transition: 0.3s;
   background-color:${p=>p.theme.primary};
   color:${p=>p.theme.text};
-  min-width:200px;
+  ${'' /* max-width:270px; */}
+  ${'' /* min-width:200px; */}
   padding:20px 10px;
   box-sizing: border-box;
+  .link{
+    text-decoration:none;
+  }
 `;
 
 const Ul = styled.div`
@@ -32,6 +36,7 @@ const Li = styled.li`
   &:hover {
     color:black;
     background-color: #f4f4f4;
+    border-radius:7px;
   }
 `;
 

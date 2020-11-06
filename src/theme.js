@@ -7,6 +7,7 @@ export default {
   text: "#ededed",
   p_text: "#393b44",
   linear:"#303960",
+  compare: "rgba(0,0,0,.3)",
   dark: {
     primary: "#373a40",
     bgColor: "",
