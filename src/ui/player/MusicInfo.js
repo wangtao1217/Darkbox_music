@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Container } from './styled';
 
 export const MusicInfo = ({name,picUrl}) => {
     console.log(name)
+    const [ loaded, setLoaded ] = useState(true)
     return <Container>
-            <span className="picture">
-                {picUrl?<img src={picUrl}/>:"null"}
-                <h3>{name}</h3>
+            {loaded?(<><span className='pic'>
+                <img/>
             </span>
+            <span className="text">
+                <p className="name">{name}</p>
+                <p>{name}</p>
+            </span></>):"😄"}
         </Container>
 }

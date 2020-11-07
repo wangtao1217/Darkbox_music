@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Global } from "../src/assets/global_state.js";
 import { logReducer, LogContext, LogDispatch, initial } from "./reducer/log";
+import Routes from "./assets/routes"
 
 import useAudio from "./hooks/useAudio";
 import {
@@ -15,12 +16,13 @@ import {
 } from "./reducer/playMusic";
 import { playList as playListLocalStorage, MODE } from "./assets/play";
 
+import Album_Detail from "./ui/album_detail/index"
 import Menu from "./ui/menu/index";
 import Top from "./ui/contain/top/index";
 import Player from "./ui/player/index";
+import Discover from "./ui/contain/discover/discover";
 import { Main, Top_container, Second } from "./ui/styled";
-import Discover from "./ui/contain/discover";
-import Like from "./ui/contain/discover";
+import Like from "./ui/contain/like";
 import { MusicList } from "./ui/contain/MusicList";
 
 const App = (props) => {
@@ -83,14 +85,17 @@ console.log(state)
                         {audio}
                         <section id="abc">
                           <Switch>
-                            <Route path={"/discover"}>
+                            <Route path={Routes.discover}>
                               <Discover />
                             </Route>
-                            <Route path={"/like"}>
+                            <Route path={Routes.like}>
                               <Like />
                             </Route>
-                            <Route exac path={`/search`}>
+                            <Route exac path={Routes.search}>
                               <MusicList />
+                            </Route>
+                            <Route exac path={Routes.song_list}>
+                              <Album_Detail  />
                             </Route>
                           </Switch>
                         </section>

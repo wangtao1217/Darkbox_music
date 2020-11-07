@@ -1,5 +1,39 @@
 import styled from "styled-components";
 
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  transition: 1s;
+  #abc {
+    display: flex;
+    height: calc(100% - 60px);
+    width: 100%;
+  }
+`;
+
+const Second = styled.div`
+  transition: 1s;
+  display: flex;
+  background-color: ${(p) => p.theme.primary};
+  flex-direction: column;
+  width: 100vw;
+  padding:0 100px;
+  color: ${(p) => p.theme.text};
+`;
+
+const Top_container = styled.div`
+  transition: 1s;
+  display: flex;
+  width:100vw;
+  height: 90vh;
+`;
+
+
 const Div = styled.div`
   padding: ${(props) => props.p || 0};
   display: ${(props) => props.display};
@@ -17,32 +51,7 @@ const Icon = styled.div`
   margin: ${(props) => (props.margin ? props.margin : "0px")};
 `;
 
-const Main = styled.div`
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  ${'' /* z-index: 1; */}
-  #abc {
-    height: calc(100% - 60px);
-    width: 100%;
-    display: flex;
-  }
-`;
-const Second = styled.div`
-  background-color: ${(p) => p.theme.primary};
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  color: ${(p) => p.theme.text};
-`;
 
-const Top_container = styled.div`
-  display: flex;
-  width:100vw;
-  height: 90vh;
-`;
+
 
 export { Div, Icon, Main, Top_container, Second };

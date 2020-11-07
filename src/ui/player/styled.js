@@ -1,54 +1,60 @@
 import styled from "styled-components";
 
+const width = '200px';
+
+
 const Main = styled.div`
-  /* position:static; */
-  position: flex;
+position:static;
+  display:flex;
   bottom: 0;
-  float:left;
   left: 0;
   right:0;
-  display: flex;
-  flex:1;
   align-items: center;
-  ${'' /* justify-content:space-between; */}
-  height: 10vh;
+  height:80px;
   width: 100vw;
-  padding: 0 20px;
-  z-index:10;
+  padding: 0 10px;
+  z-index:100;
   box-sizing:border-box;
-  ${'' /* background: #e2e2e2; */}
   overflow:hidden;
-  ${'' /* backdrop-filter:blur(20px); */}
-  &::before{
+  background-color: white;
+  ${'' /* &::before{
     content:'';
+    z-index:100;
     top:0;left:0;right:0;bottom:0;
     background-color: rgba(100,100,100);
-    z-index:-1;
- }
+    filter:blur(20px);
+ } */}
 `;
 
 
 
-const Text = styled.div`
-  font-size: ${(props) => props.size};
-  color: ${(props) => {
-    return (props.text = "music" ? props.theme.primary: "#f6f6f6");
-  }};
-`;
-
-const TextDiv = styled.div`
-  height: 60px;
-  width: 70px;
-  padding: 6px 0;
-  font-family:fantasy;
-  line-height:30px;
-  letter-spacing:0.3em;
-  ${'' /* margin-right:4%; */}
-`;
 const Container = styled.div`
-z-index:2;
-width:200px;
+user-select:none;
+cursor:pointer;
+width: ${width};
 height:100%;
-${'' /* background-color:black; */}
+display:flex;
+align-items:center;
+.pic{
+  height:60px;
+  width:60px;
+}
+.text{
+  height:60px;
+  width:calc(${width} - 60px);
+  padding:6px 0;
+  margin-left:10px;
+  box-sizing:border-box;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  p{
+    margin:0px;
+    font-size:12px;
+  }
+  .name{
+      margin-bottom:5px;
+      font-size:20px;
+    }
 `;
-export { Main, Text, TextDiv, Container };
+export { Main, Container };

@@ -1,20 +1,45 @@
 import styled from "styled-components";
 
+const width = 26;
+const radius = 4;
 
 const Div = styled.div`
-  width:270px;
+z-index:100;
+position:relative;
+width:300px;
+height:100%;
   display:flex;
   flex-direction:column;
-  color:white;
-  transition: 0.3s;
-  background-color:${p=>p.theme.primary};
-  color:${p=>p.theme.text};
-  ${'' /* max-width:270px; */}
-  ${'' /* min-width:200px; */}
+  transition: 0.5s;
+  background-color:${p=>p.theme.bgColor};
+  ${'' /* background-color:${p=>p.theme.text}; */}
+  ${'' /* color:${p=>p.theme.text}; */}
+
   padding:20px 10px;
   box-sizing: border-box;
+  transform:translateX(-${p=>p.show});
+  position:${p=>p.show?"absolute":null};
   .link{
     text-decoration:none;
+  }
+
+  .toggle{
+    cursor:pointer;
+    position:absolute;
+    ${'' /* height:50px; */}
+    padding:2px;
+    box-sizing:border-box;
+    width:${width}px;
+    top:10px;
+    right:-${width}px;
+    background-color:${p=>p.theme.bgColor};
+    border-radius:0 ${radius}px ${radius}px 0;
+  }
+
+  i{
+    font-size:20px;
+    line-height:24px;
+    color:${p=>p.theme.primary};
   }
 `;
 
@@ -26,9 +51,10 @@ const Ul = styled.div`
 const Li = styled.li`
   display: flex;
   box-sizing: border-box;
-  padding: 10px 24px;
+  padding: 10px 16px;
   list-style: none;
   color: ${p=>p.theme.text};
+  
   font-size: 1.1em;
   cursor: pointer;
   transition: 0.3s;
@@ -36,7 +62,7 @@ const Li = styled.li`
   &:hover {
     color:black;
     background-color: #f4f4f4;
-    border-radius:7px;
+    border-radius:2px;
   }
 `;
 

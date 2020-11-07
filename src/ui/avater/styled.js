@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 const Contant = styled.div`
   display: flex;
-  justify-content: start;
+  ${'' /* justify-content: start; */}
   align-items:center;
   height: 100%;
-  width: 100%;
+  width: 100px;
   ${'' /* padding: 10px 0;
   box-sizing: border-box; */}
   ${'' /* background-color: red; */}

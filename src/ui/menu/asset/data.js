@@ -1,14 +1,18 @@
-export default [
-  { name: "discover", type: "item" ,url:'explore'},
-  { name: "like", type: "item",url:'like' },
-  {
-    name: "专辑",
-    type: "sub",
-    child: [
-      { name: "⭐", type: "item" },
-      { name: "🌙", type: "item" },
-      { name: "🧀", type: "item" }
-    ]
-  },
-  // { name: "🤣", type: "item" }
-];
+import React, { useContext } from "react";
+
+import { LogContext } from "../../../reducer/log";
+
+const useData = () => {
+  const logState = useContext(LogContext);
+
+  const data = [{ name: "Discover", type: "item", url: "explore" }];
+
+  if(logState.islogged){
+    const user_data = data;
+    // user_data.push()
+    return user_data
+  }
+
+  return data;
+};
+export default useData;
