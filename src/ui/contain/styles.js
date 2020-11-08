@@ -11,6 +11,23 @@ const Container = styled.div`
     padding:10px 10px;
     box-sizing:border-box;
     overflow:scroll;
+    h1{
+        margin-left:10px;
+        letter-spacing:6px;
+    }
+    ${'' /* button{
+        height:100px;
+        width:220px;
+        background-color:${p=>p.theme.primary};
+        color:${p=>p.theme.text};
+        padding:10px 20px;
+        font-size:120%;
+        border:2px solide ${p=>p.theme.bgColor};
+    } */}
+    section{
+        ${'' /* margin-top:360px; */}
+
+    }
 `;
 
 export default Container 

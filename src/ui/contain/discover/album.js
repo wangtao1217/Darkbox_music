@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useCallback } from "react";
 
-import { useHistory } from "react-router-dom";
 
 import { Span } from "./style";
+import { useHistory, useRouteMatch, useParams, useLocation } from "react-router-dom";
+import Routes from "../../../assets/routes";
 
-const Album = ({ data }) => {
+const Album = ({data}) => {
+  const { id, name, picUrl } = data
   const history = useHistory();
-  const { picUrl, name } = data;
-    console.log(data)
-  const handleClick = () => {
-      alert('Hello...');
-      history.push()
-  };
+  const location = useLocation();
 
+  console.log(data);
+
+  const handleClick = useCallback(() => {
+    history.push(`${Routes.album}/${id}`);
+  },[]);
   return (
-    <Span onClick={handleClick} url={picUrl}>
+    <Span url={picUrl} onClick={handleClick}>
       <span className="clip">
-        <p>{name}</p>
+        <section>{name}</section>
       </span>
     </Span>
   );

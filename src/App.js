@@ -1,5 +1,5 @@
 import React, { useReducer, useContext, useCallback, useMemo } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import { Global } from "../src/assets/global_state.js";
 import { logReducer, LogContext, LogDispatch, initial } from "./reducer/log";
@@ -91,12 +91,13 @@ console.log(state)
                             <Route path={Routes.like}>
                               <Like />
                             </Route>
-                            <Route exac path={Routes.search}>
+                            <Route exact path={Routes.search}>
                               <MusicList />
                             </Route>
-                            <Route exac path={Routes.song_list}>
+                            <Route exact path={Routes.album_detail}>
                               <Album_Detail  />
                             </Route>
+                            <Redirect from={'/'} to={Routes.discover}/>
                           </Switch>
                         </section>
                       </Second>

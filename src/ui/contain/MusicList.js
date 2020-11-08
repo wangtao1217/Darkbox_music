@@ -55,10 +55,10 @@ export const MusicList = ({ data, s_column }) => {
 
   const DoubleClick = async (item) => {
     let { picUrl } = item;
-    if (!picUrl) {
-      const result = await Album.getAlbum(item.album.id);
-      picUrl = result?.album.blurPicUrl;
-    }
+    // if (!picUrl) {
+    //   const result = await Album.getAlbum(item.album.id);
+    //   picUrl = result?.album.blurPicUrl;
+    // }
 
     dispatch({
       type: ACTION.PLAY,

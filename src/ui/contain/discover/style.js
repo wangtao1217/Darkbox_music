@@ -3,14 +3,20 @@ import styled from "styled-components";
 const margin = 12;
 const padding = margin * 2;
 
+const New_Container = styled.section`
+box-sizing:border-box;
+  padding:15px 15px;
+  width: 100%;
+  background-color:white;
+  margin-bottom:20px;
+}
+`;
+
 const Album_Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  justify-content: center;
-  border-radius: 5px;
-  Link{
-    color:white;
-  }
+  justify-content: space-evenly;
+  height:auto;
 `;
 
 const Span = styled.div`
@@ -29,10 +35,6 @@ const Span = styled.div`
   
   user-select: none;
   cursor: pointer;
-
-  text-overflow:ellipsis;
-  white-space:nowrap;
-  overflow:hidden;
 
   .clip {
     position: absolute;
@@ -56,10 +58,14 @@ const Span = styled.div`
       background-size: 100%;
     }
 
-    p {
-      font-size: 16px;
-      margin: 12px 10px;
-      z-index: 1;
+    section {
+   
+      display:block;
+      height:100%;
+      width:100%;
+      margin: 5px;
+      box-sizing:border-box;
+      font-size:90%;
     }
   }
 
@@ -69,4 +75,4 @@ const Span = styled.div`
   }
 `;
 
-export { Span, Album_Container };
+export { Span, Album_Container, New_Container };
