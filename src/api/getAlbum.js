@@ -7,7 +7,7 @@ import axios from '../assets/axios';
             id
         }
     })
-    return response.privileges;
+    return response.playlist
 };
 
 export default getAlbum

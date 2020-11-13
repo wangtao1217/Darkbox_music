@@ -34,8 +34,7 @@ export const musicReducer = (state, action) => {
       if (!load) {
         return { ...state };
       }
-      console.log(load);
-      console.log(typeof load.music);
+      
       setPlayHistory(load.music);
 
       return {

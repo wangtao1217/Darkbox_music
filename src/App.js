@@ -1,4 +1,4 @@
-import React, { useReducer, useContext, useCallback, useMemo } from "react";
+import React, { useReducer, useContext, useCallback, useMemo, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import { Global } from "../src/assets/global_state.js";
@@ -33,13 +33,16 @@ const App = (props) => {
   const [state, dispatch] = useReducer(musicReducer, initialState);
   const { musicId, musicUrl, playMode } = state;
 
+console.log(state)
   const playList = playListLocalStorage.getItem();
 
   const [audio, audioState, audioControls, audioRef] = useAudio({
-    url: musicUrl,
+    src: musicUrl,
     finish: () => playNext(),
   });
-console.log(state)
+
+
+// console.log(state)
   const audioInfo = useMemo(() => {
     return {  
       audio,
@@ -48,6 +51,7 @@ console.log(state)
       ref: audioRef
     }
   },[musicUrl,audio,audioState,audioControls,audioRef])
+
 
   const playMusic = useCallback(
     (index) => {
@@ -67,7 +71,7 @@ console.log(state)
       case MODE.REPEAT:
     }
   }, [playMode, MODE]);
-  console.log(audioInfo);
+  console.log(audio);
 
   return (
     <Router>

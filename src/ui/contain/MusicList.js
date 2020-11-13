@@ -48,18 +48,17 @@ export const MusicList = ({ data, s_column }) => {
   const state = useContext(M_StateContext);
   const dispatch = useContext(M_DispatchContext);
   const audioInfo = useContext(AudioContext);
-
   if (s_column) {
     column = s_column;
   }
 
-  const DoubleClick = async (item) => {
+  const DoubleClick =  (item) => {
     let { picUrl } = item;
     // if (!picUrl) {
     //   const result = await Album.getAlbum(item.album.id);
     //   picUrl = result?.album.blurPicUrl;
     // }
-
+    console.log(item)
     dispatch({
       type: ACTION.PLAY,
       load: {
@@ -72,12 +71,12 @@ export const MusicList = ({ data, s_column }) => {
       },
     });
   };
-  console.log(data)
+  // console.log(data)
   return (
     <Container>
       <Table
         data={data?data:result}
-        DoubleClick={(item) => DoubleClick(item)}
+        DoubleClick={DoubleClick}
         column={column}
       />
     </Container>

@@ -12,12 +12,9 @@ const Log = () => {
     const dispatch = useContext(LogDispatch);
 
     return <Log_Container>
-    {/* {state.islogged?
-    <>
-    } */}
-        {/* <input type='text' ref={account} placehoder='account...'/>
-        <input type='text' ref={passwords} placehoder='passwords...'/>
-         */}
+        <input type='text' ref={account} placehoder='account...' className='account'/>
+        <input type='text' ref={passwords} placehoder='passwords...' className='pass'/>
+        <button>{'登录'}</button>
     </Log_Container>
 }
 

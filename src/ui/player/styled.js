@@ -17,6 +17,7 @@ position:static;
   box-sizing:border-box;
   overflow:hidden;
   background-color: white;
+  animation:1s;
   ${'' /* &::before{
     content:'';
     z-index:100;
@@ -38,6 +39,8 @@ align-items:center;
 .pic{
   height:60px;
   width:60px;
+  background-image:url(${p=>p.picUrl});
+  background-size:100%;
 }
 .text{
   height:60px;
@@ -50,11 +53,12 @@ align-items:center;
   overflow:hidden;
   p{
     margin:0px;
-    font-size:12px;
+    font-size:10px;
   }
   .name{
       margin-bottom:5px;
-      font-size:20px;
+      font-size:18px;
     }
+  
 `;
 export { Main, Container };
