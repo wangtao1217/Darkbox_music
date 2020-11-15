@@ -22,7 +22,25 @@ const useAudio = (elProps) => {
 
   const ref = useRef(null);
 
-  let lockPlay = false;
+  const WrapEvent = (userEvent, proxyEvent) => {
+    return (event) => {
+      try {
+        proxyEvent && proxyEvent(event);
+      } finally {
+        userEvent && userEvent(event);
+      }
+    };
+
+   
+  };
+  const onTimeUpdate = () => {
+    const el = ref.current;
+    if (!el) {
+      return;
+    }
+    setState({ time: el.currentTime });
+  };
+
 
   const Event = {
     play: () => {
@@ -32,13 +50,10 @@ const useAudio = (elProps) => {
 
       console.log("successful..");
 
-      // if(!lockPlay){
       const promise = el.play();
-     
+
       el.play();
-      // console.log('www')
-      // console.log(promise)
-      // console.info(el)
+
       setState({ playing: true });
     },
     Pause: () => {
@@ -49,11 +64,12 @@ const useAudio = (elProps) => {
       el.pause();
       setState({ playing: false });
     },
-    onTime: () => {
+    seek: (time) => {
       const el = ref.current;
       if (!el) return;
-
-      setState({ time: el.currentTime });
+console.log(time)
+      el.currentTime = time;
+      // setState({ time: el.currentTime });
     },
     onDuration: () => {
       const el = ref.current;
@@ -64,56 +80,49 @@ const useAudio = (elProps) => {
     },
   };
 
-
-
   if (element) {
     element = React.cloneElement(element, {
       controls: false,
+      onTimeUpdate: WrapEvent(props.onTimeUpdate, onTimeUpdate),
       ...props,
       ref,
     });
   } else {
     element = React.createElement("audio", {
       controls: false,
+      onTimeUpdate: WrapEvent(props.onTimeUpdate, onTimeUpdate),
       ...props,
       ref,
     });
   }
-
+// console.log(state)
   useEffect(() => {
     Event.play();
   }, [props.src]);
   return [element, state, Event, ref];
 };
-
 export default useAudio;
 
+// const element =   React.createElement("audio");
+// React.createElement("audio", {
+//   controls: false,
+//   Play: Event().Play(),
+//   // ChangeVolumn: Event().ChangeVolumn(),
+// });
 
+// const controls = {
+//   play: () => setState({ playing: true }),
+//   // pause:,
+// };
 
-
-
-  // const element =   React.createElement("audio");
-  // React.createElement("audio", {
-  //   controls: false,
-  //   Play: Event().Play(),
-  //   // ChangeVolumn: Event().ChangeVolumn(),
-  // });
-
-
-    // const controls = {
-  //   play: () => setState({ playing: true }),
-  //   // pause:,
-  // };
-
-
-   //   const isPromise = typeof promise === "object";
-      //   console.log(promise)
-      //   if(isPromise){
-      //     lockPlay = true
-      //     const resetLock = () => {
-      //       lockPlay = false
-      //     }
-      //     promise.then(resetLock, resetLock)
-      //   }
-      //   return promise
-      // }
+//   const isPromise = typeof promise === "object";
+//   console.log(promise)
+//   if(isPromise){
+//     lockPlay = true
+//     const resetLock = () => {
+//       lockPlay = false
+//     }
+//     promise.then(resetLock, resetLock)
+//   }
+//   return promise
+// }

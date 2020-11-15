@@ -1,13 +1,20 @@
-import axios from '../assets/axios';
+import axios from "../assets/axios";
 
- const getAlbum = async (id) => {
-    const response = await axios({
-        url: '/playlist/detail',
-        params: {
-            id
-        }
-    })
-    return response.playlist
+import { createMusic } from "../assets/createMusic";
+
+const getAlbum = async (id) => {
+  const response = await axios({
+    url: "/playlist/detail",
+    params: {
+      id,
+    },
+  });
+
+  const songs = [];
+
+  console.log(response);
+
+  return response.playlist;
 };
 
-export default getAlbum
+export default getAlbum;

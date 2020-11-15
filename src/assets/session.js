@@ -2,7 +2,7 @@ import { LocalStorageFactory, DEFAULT_VALUE } from "./localstorage";
 
 const KEY = '__session';
 
-export const session = LocalStorageFactory({
+export const sessionStorage = LocalStorageFactory({
     key: KEY,
     defaultvalue: DEFAULT_VALUE.OBJECT,
 });

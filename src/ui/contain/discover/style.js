@@ -9,6 +9,17 @@ box-sizing:border-box;
   width: 100%;
   background-color:white;
   margin-bottom:20px;
+  section{
+   display:flex;
+    height:200px;
+    width:100%;
+    background-color:black;
+    .image{
+    height:100px;
+    width:100px;
+  }
+  }
+  
 }
 `;
 

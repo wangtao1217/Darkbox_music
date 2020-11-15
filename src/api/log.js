@@ -1,13 +1,14 @@
 import axios from '../assets/axios';
 
- const login = ({ cellphone, passwords}) => {
-  return axios({
+ const login =  ({ phone, password}) => {
+  const response = axios({
         url: '/login/cellphone',
         params: {
-          cellphone,
-          passwords
+          phone,
+          password
         }
     })
+    return response
 }
 
 const logout = () => {
@@ -17,4 +18,4 @@ const logout = () => {
     })
 }
 
-export default { login, logout }
+export  { login, logout }

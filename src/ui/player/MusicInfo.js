@@ -19,7 +19,7 @@ export const MusicInfo = ({name,picUrl,ar}) => {
     const handleClick= useCallback(()=>{
         setShow(1?0:1)
     },[])
-    return <Container picUrl={picUrl} onClick={handleClick} show={show}>
+    return <Container picUrl={picUrl} onClick={()=>setShow(show?0:1)} show={show}>
             {loaded?(<><span className='pic'/>
             <span className="text">
                 <p className="name">{name}</p>

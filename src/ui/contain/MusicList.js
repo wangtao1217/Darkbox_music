@@ -11,6 +11,7 @@ import Container from "./styles";
 import Table from "../table/index";
 import { Mycontext } from "../../assets/global_state"
 
+import { formatTime } from "../../helper/time"
 import { createMusic } from "../../assets/createMusic";
 
 export const MusicList = ({ data, s_column }) => {
@@ -58,7 +59,7 @@ export const MusicList = ({ data, s_column }) => {
     //   const result = await Album.getAlbum(item.album.id);
     //   picUrl = result?.album.blurPicUrl;
     // }
-    console.log(item)
+    // console.log()
     dispatch({
       type: ACTION.PLAY,
       load: {
@@ -66,7 +67,7 @@ export const MusicList = ({ data, s_column }) => {
         music: createMusic({
           ...item,
           picUrl,
-          duration: item.duration / 1000,
+          duration: item.dt / 1000,
         }),
       },
     });
