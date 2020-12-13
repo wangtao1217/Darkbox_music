@@ -12,8 +12,15 @@ const Container = styled.div`
     box-sizing:border-box;
     overflow:scroll;
     h1{
+        font-size:1.6em;
         margin-left:10px;
         letter-spacing:6px;
+        ${'' /* color:red; */}
+    }
+    h3{
+        display:block;
+        margin:10px 0 40px 0 ;
+
     }
     ${'' /* button{
         height:100px;

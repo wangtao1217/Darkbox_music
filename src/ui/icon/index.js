@@ -17,16 +17,16 @@ export default (props) => {
   const { name } = props;
   const icon = {
     // home: ,
-    like:<i class="fas fa-star"></i>,
-    album: <i class="fas fa-record-vinyl" />,
-    play: <i class="fas fa-play" />,
-    stop: <i class="fas fa-headphones-alt" />,
-    search:<i class="fad fa-repeat"></i>,
-    next: <i class="fas fa-caret-left"></i>,
-    pre: <i class="fas fa-caret-right"></i>,
-    list:<i class="fas fa-stream"></i>,
-    repeat_one:<i class="far fa-repeat-1-alt"/>,
-    repeat:<i class="fad fa-repeat"></i>,
+    like:<i className="fas fa-star"></i>,
+    album: <i className="fas fa-record-vinyl" />,
+    play: <i className="fas fa-play" />,
+    stop: <i className="fas fa-headphones-alt" />,
+    search:<i className="fad fa-repeat"></i>,
+    next: <i className="fas fa-caret-left"></i>,
+    pre: <i className="fas fa-caret-right"></i>,
+    list:<i className="fas fa-stream"></i>,
+    repeat_one:<i className="far fa-repeat-1-alt"/>,
+    repeat:<i className="fad fa-repeat"></i>,
     // mode:{repeat:,},
   };
   return <Item onClick={()=>{

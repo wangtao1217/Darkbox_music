@@ -12,8 +12,8 @@ export default (props) => {
 
   const { show, islogged, user } = log_state;
   const { avatarUrl, city, nickname, playlistCount, vipType, userId } = user.profile;
-console.log(avatarUrl)
-console.log(nickname)
+
+  console.log(user)
   return (
     <Top url={avatarUrl}>
       <Search />

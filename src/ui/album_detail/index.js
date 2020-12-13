@@ -18,26 +18,22 @@ function Album_Detail(data) {
   useEffect(() => {
     getAlbum(album_id).then((response) => {
       const ids = [];
-      console.log(response)
+      // console.log(response)
 
-      if(!response){
-        return null
-      };
+      if (!response) return null;
 
-      setInfo(response)
-      console.log(response)
-
+      setInfo(response);
       response.trackIds.map((item) => {
         ids.push(item.id);
       });
       getSongs(ids).then((res) => setSongs(res));
     });
   }, []);
-  console.log(songs)
+  // console.log(songs)
   return (
     <>
       <Container>
-        <Album_info data={info}/>
+        <Album_info data={info} />
         <section>
           <MusicList data={songs} />
         </section>

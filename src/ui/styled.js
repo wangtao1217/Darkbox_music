@@ -22,7 +22,7 @@ const Second = styled.div`
   background-color: ${(p) => p.theme.primary};
   flex-direction: column;
   width: 100vw;
-  padding:0 100px;
+  padding:0 140px;
   color: ${(p) => p.theme.text};
 `;
 

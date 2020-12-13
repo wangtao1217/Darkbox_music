@@ -4,7 +4,7 @@ const getDiscover = async () => {
     const res = await axios({
         url:'/personalized',
         params: {
-            limit: 20
+            limit: 29
         }})
     // }).then(response=>{
     //     console.log(response)

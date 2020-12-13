@@ -26,4 +26,4 @@ const New_songs = () => {
   );
 };
 
-export default New_Container;
+export default New_songs;

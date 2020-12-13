@@ -11,7 +11,7 @@ import { MusicList } from "../../contain/MusicList";
 import { New_Container } from "./style";
 
 const Discover = () => {
-  const [data, setData] = useState([{ name: "---", picUrl: null }]);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     getDiscover().then((res) => setData(res));
@@ -50,8 +50,8 @@ const Discover = () => {
           </section>
         </New_Container>
         <section>
-          <h1>{"推荐歌单"}</h1>
-          <Album_List data={data} />
+          <h1 className='recommand'>{"推荐歌单"}</h1>
+          {data?<Album_List data={data} />:<h3>{"音乐正在路上哦🙂"}</h3>}
           <button>{"Get more"}</button>
         </section>
       </Container>

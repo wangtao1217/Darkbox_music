@@ -19,22 +19,23 @@ export default (props) => {
   const dispatch = useContext(M_DispatchContext);
   const song = music ? music.al : null;
 
-
   console.log(music);
   console.log(audioState);
 
   return (
-    <Main>
-    {music ? (
-      <MusicInfo
-        name={!song ? null : music.name}
-        picUrl={!song ? null : song.picUrl}
-        ar={!song ? null : music.ar}
-      />
-    ) : (
-      <MusicInfo />
-    )}
-    <Time music={music} audioState={audioState} controls={controls} />
-  </Main>
+    <Main show={music}>
+      {music ? (
+        <>
+          <MusicInfo
+            name={!song ? null : music.name}
+            picUrl={!song ? null : song.picUrl}
+            ar={!song ? null : music.ar}
+          />
+          <Time music={music} audioState={audioState} controls={controls} />
+        </>
+      ) : (
+        "..."
+      )}
+    </Main>
   );
 };

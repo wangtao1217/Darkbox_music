@@ -4,9 +4,9 @@ const width = '200px';
 
 
 const Main = styled.div`
-position:static;
+  position:static;
   display:flex;
-  bottom: 0;
+  bottom: -80px;
   left: 0;
   right:0;
   align-items: center;
@@ -18,13 +18,6 @@ position:static;
   overflow:hidden;
   background-color: white;
   animation:1s;
-  ${'' /* &::before{
-    content:'';
-    z-index:100;
-    top:0;left:0;right:0;bottom:0;
-    background-color: rgba(100,100,100);
-    filter:blur(20px);
- } */}
 `;
 
 

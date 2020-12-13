@@ -32,7 +32,7 @@ const Table = ({ column, data, DoubleClick }) => {
             <Row key={key} onDoubleClick={() => DoubleClick(item)}>
               {column.map((cell, id) => {
                 return (
-                  <Cell flex={cell.flex}>{cell.render({ item, key })}</Cell>
+                  <Cell key={id} flex={cell.flex}>{cell.render({ item, key })}</Cell>
                 );
               })}
             </Row>

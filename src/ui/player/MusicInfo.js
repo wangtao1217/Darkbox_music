@@ -24,6 +24,6 @@ export const MusicInfo = ({name,picUrl,ar}) => {
             <span className="text">
                 <p className="name">{name}</p>
                 <p>{author(ar)}</p>
-            </span></>):"😄"}
+            </span></>):"haha"}
         </Container>
 }
