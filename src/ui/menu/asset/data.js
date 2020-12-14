@@ -2,16 +2,20 @@ import React, { useContext } from "react";
 import routes from "../../../assets/routes";
 
 import { LogContext } from "../../../reducer/log";
+import { get_user_album } from "../../../api/user";
 
+
+const getData = (user) => {
+  return get_user_album(user.account.id)
+
+} 
 const useData = () => {
-  const logState = useContext(LogContext);
-
+  const log_state = useContext(LogContext);
+  const { show, islogged, user } = log_state;
+  const [ res, setRes ] = React.useState()
   const data = [{ name: "Discover", type: "item", route: routes.discover }];
-
-  if(logState.islogged){
-    const user_data = data;
-    // user_data.push()
-    return user_data
+  if (islogged) {
+    console.log(res);
   }
 
   return data;

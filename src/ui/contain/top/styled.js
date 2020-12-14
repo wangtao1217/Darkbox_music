@@ -12,33 +12,27 @@ const Top = styled.div`
   box-sizing: border-box;
   user-select: none;
   width: 100%;
-  
-    
-  ${'' /* <span className="avatar">
-        </span> */}
-  .user{
-    display:flex;
-    align-items:center;
+
+  .user {
+    display: flex;
+    align-items: center;
     height: 100%;
     width: auto;
-    margin-right:10px;
-   ${'' /* background-color: white;  */}
+    margin-right: 10px;
 
-   .avatar {
-      display:flex;
+    .avatar {
+      display: flex;
       height: ${size}px;
-      width:${size}px;
-      border-radius:${size/2}px;
-      ${'' /* padding:0 16px; */}
-      ${"" /* background-color: white; */}
-      background-image:url(${(p) => p.url});
-      background-size:cover;
-      margin-right:7px;
-  }
-  p{
-    font-size:.9em;
-    opacity:.6;
-  }
+      width: ${size}px;
+      border-radius: ${size / 2}px;
+      background-image: url(${(p) => p.url});
+      background-size: cover;
+      margin-left: 7px;
+    }
+    p {
+      font-size: 0.9em;
+      opacity: 0.6;
+    }
   }
   .log_in {
     font-size: 1.1rem;
@@ -57,7 +51,8 @@ const Top = styled.div`
 
 const Span = styled.div`
   display: flex;
-  ${"" /* .input {
+  ${
+    "" /* .input {
     z-index:10;
     float: left;
     position: ${(p) => (p.focus ? "absolute" : null)};
@@ -69,7 +64,8 @@ const Span = styled.div`
     width: ${(p) => (p.focus ? "300px" : "auto")};
     background-color: ${(p) => (p.focus ? p.theme.compare : null)};
     transition: 0.6s;
-  } */}
+  } */
+  }
   input {
     display: flex;
     ${"" /* align-items: center; */}
@@ -79,12 +75,14 @@ const Span = styled.div`
     box-sizing: border-box;
     border-radius: 6px;
     margin: 0 15px;
+    margin-left: 150px;
     outline: none;
     border: none;
     font-size: 1.2em;
     color: ${(props) => props.theme.text};
     transition: 0.4s;
-    background-color: ${(p) => p.theme.compare};
+    border-bottom: 2px #e3e3e3 solid;
+    ${'' /* background-color: ${(p) => p.theme.compare}; */}
   }
 `;
 

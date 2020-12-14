@@ -12,7 +12,6 @@ const Log = () => {
   const log_dispatch = useContext(LogDispatch);
 
   const { show } = log_state;
-  console.log(phone);
 
   const handleLog = async () => {
     const result = await login({ phone, password });

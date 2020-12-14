@@ -20,7 +20,7 @@ const Info_Container = styled.div`
   flex: 3.5;
   height: 80%;
   width: ${size};
-  margin: 20px 20px;
+  margin: 20px 0;
   box-sizing: border-box;
   .album_pic {
     background-image: url(${(p) => p.url});

@@ -4,9 +4,9 @@ const width = '200px';
 
 
 const Main = styled.div`
-  position:static;
-  display:flex;
-  bottom: -80px;
+  position:fixed;
+   display:flex;
+  bottom: 0;
   left: 0;
   right:0;
   align-items: center;
@@ -15,9 +15,10 @@ const Main = styled.div`
   padding: 0 10px;
   z-index:100;
   box-sizing:border-box;
-  overflow:hidden;
-  background-color: white;
-  animation:1s;
+  transform: translateY(${p => p.show?0:80}px);
+  transition: .6s;
+  background: rgba(40,40,40,1);
+
 `;
 
 
@@ -53,5 +54,5 @@ align-items:center;
       font-size:18px;
     }
   
-`;
+`
 export { Main, Container };

@@ -1,7 +1,7 @@
 import React, { useReducer, useContext, useCallback, useMemo, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-import { Global } from "../src/assets/global_state.js";
+import { Global } from "./assets/global_state.js";
 import { logReducer, LogContext, LogDispatch, initial } from "./reducer/log";
 import Routes from "./assets/routes"
 

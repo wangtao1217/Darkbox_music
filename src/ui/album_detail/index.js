@@ -18,18 +18,14 @@ function Album_Detail(data) {
   useEffect(() => {
     getAlbum(album_id).then((response) => {
       const ids = [];
-      // console.log(response)
-
       if (!response) return null;
-
       setInfo(response);
       response.trackIds.map((item) => {
         ids.push(item.id);
       });
       getSongs(ids).then((res) => setSongs(res));
     });
-  }, []);
-  // console.log(songs)
+  }, [album_id]);
   return (
     <>
       <Container>
