@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 
-import Album from "../../api/getAlbum";
 import {
   M_StateContext,
   M_DispatchContext,
@@ -11,7 +10,6 @@ import Container from "./styles";
 import Table from "../table/index";
 import { Mycontext } from "../../assets/global_state"
 
-import { formatTime } from "../../helper/time"
 import { createMusic } from "../../assets/createMusic";
 
 export const MusicList = ({ data, s_column }) => {
@@ -72,7 +70,6 @@ export const MusicList = ({ data, s_column }) => {
       },
     });
   };
-  // console.log(data)
   return (
     <Container>
       <Table

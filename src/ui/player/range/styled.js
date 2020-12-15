@@ -7,7 +7,7 @@ const Div = styled.div`
   margin-right:20px;
   align-items: center;
   justify-content:center;
-  color: #838383;
+  color: white;
   font-size: 0.8em;
 `;
 
@@ -18,22 +18,31 @@ const Span = styled.div`
   margin: 0 2%;
   align-items: center;
   justify-content:space-between;
+  ${'' /* span{
+   height: auto;
+   width: auto;
+    i{
+    font-size: 14px;
+    color: white;
+  } */}
+  }
 `;
 const Back = styled.div`
-  height: 10px;
+  height: 6px;
   width: 100%;
   margin: 0 20px;
-  box-shadow: 0 0 6px 2px inset #e6e6e6;
-  background-color: ${(p) => (p.bg ? p.bg : "#f2f2f2")};
+  background-color: rgba(50,50,50,.2);
   max-width: 100%;
+  border-radius: 3px;
 `;
 
 const Thumb = styled.div`
   height: 100%;
   width: ${(p) => (p.w ? `${p.w}px` : "0px")};
   max-width: 100%;
-  background-color: ${(p) => (p.bg ? p.theme.primary :  p.theme.primary )};
+  background-color: white;
   position: relative;
+  border-radius: 3px;
 `;
 
 const Container = styled.div`
@@ -58,18 +67,16 @@ const Point = styled.div`
 `;
 
 const Play_list = styled.div`
+  display:flex;
+  position:static;
   height:90vh;
   width:30vw;
-  min-width:220px;
-  max-width:320px;
-  display:flex;
   flex-direction:column;
   justify-content:center;
   box-sizing:border-box;
   z-index:10;
   color:${p=>p.theme.text};
   background-color:${p=>p.theme.compare};
-  position:fixed;
   top:0;
   right:0;
   transform:translateX(${p=>p.move});

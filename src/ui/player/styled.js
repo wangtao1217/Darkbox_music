@@ -17,7 +17,9 @@ const Main = styled.div`
   box-sizing:border-box;
   transform: translateY(${p => p.show?0:80}px);
   transition: .6s;
-  background: rgba(40,40,40,1);
+  background: rgba(40,40,40,.5);
+  backdrop-filter: blur(20px);
+  color: white;
 
 `;
 

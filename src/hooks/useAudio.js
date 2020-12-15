@@ -35,9 +35,7 @@ const useAudio = (elProps) => {
   };
   const onTimeUpdate = () => {
     const el = ref.current;
-    if (!el) {
-      return;
-    }
+    if (!el) return;
     setState({ time: el.currentTime });
   };
 
@@ -47,34 +45,26 @@ const useAudio = (elProps) => {
       let el = ref.current;
 
       if (!el) return null;
-
-      console.log("successful..");
-
-      const promise = el.play();
-
       el.play();
-
       setState({ playing: true });
     },
     Pause: () => {
       let el = ref.current;
 
       if (!el) return null;
-
       el.pause();
       setState({ playing: false });
     },
     seek: (time) => {
       const el = ref.current;
+
       if (!el) return;
-console.log(time)
       el.currentTime = time;
-      // setState({ time: el.currentTime });
     },
     onDuration: () => {
       const el = ref.current;
-      if (!el) return;
 
+      if (!el) return;
       const { duration } = el;
       setState({ duration });
     },
@@ -95,34 +85,9 @@ console.log(time)
       ref,
     });
   }
-// console.log(state)
   useEffect(() => {
     Event.play();
   }, [props.src]);
   return [element, state, Event, ref];
 };
 export default useAudio;
-
-// const element =   React.createElement("audio");
-// React.createElement("audio", {
-//   controls: false,
-//   Play: Event().Play(),
-//   // ChangeVolumn: Event().ChangeVolumn(),
-// });
-
-// const controls = {
-//   play: () => setState({ playing: true }),
-//   // pause:,
-// };
-
-//   const isPromise = typeof promise === "object";
-//   console.log(promise)
-//   if(isPromise){
-//     lockPlay = true
-//     const resetLock = () => {
-//       lockPlay = false
-//     }
-//     promise.then(resetLock, resetLock)
-//   }
-//   return promise
-// }

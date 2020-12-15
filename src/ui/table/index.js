@@ -2,16 +2,11 @@ import React from "react";
 
 import {
   Head,
-  Task,
   Row,
   Container,
   Body,
   Cell,
-  ImagContainer,
 } from "./styled";
-import { Div } from "../styled";
-// import Imag from "../image/index"
-import Icon from "../icon/index";
 
 const Table = ({ column, data, DoubleClick }) => {
   if(!data)return null;
@@ -45,33 +40,3 @@ const Table = ({ column, data, DoubleClick }) => {
 
 export default Table;
 
-// <Head>
-// <Cell flex="1"></Cell>
-// <Cell flex="1">{"#"}</Cell>
-// <Cell flex=".8"></Cell>
-// <Cell flex="3">{"Name"}</Cell>
-// <Cell flex="2">{"Author"}</Cell>
-// <Cell flex="2">{"Time"}</Cell>
-// </Head>
-
-// <Body>
-// {list.map((val, key) => {
-// const { name, time, author } = val
-// return (
-//   <Row key={key} onDoubleClick={()=>{
-//     alert('Hello...')
-//   }}>
-
-//     <Cell flex="1">
-//       <ImagContainer>
-//       </ImagContainer>
-//     </Cell>
-//     <Cell flex="1">{key}</Cell>
-//     <Cell flex=".8"><Icon name='like'/></Cell>
-//     <Cell flex="3">{name}</Cell>
-//     <Cell flex="2">{time}</Cell>
-//     <Cell flex="2">{author}</Cell>
-//   </Row>
-// );
-// })}
-// </Body>
