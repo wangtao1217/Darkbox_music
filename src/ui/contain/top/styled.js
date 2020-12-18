@@ -79,10 +79,9 @@ const Span = styled.div`
     outline: none;
     border: none;
     font-size: 1.2em;
-    color: ${(props) => props.theme.text};
+    color: ${(props) => props.theme.secondary};
     transition: 0.4s;
     border-bottom: 2px #e3e3e3 solid;
-    ${'' /* background-color: ${(p) => p.theme.compare}; */}
   }
 `;
 

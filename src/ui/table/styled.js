@@ -30,14 +30,13 @@ const Row = styled.div`
   height: 40px;
   box-sizing:border-box;
   color: ${(p) => p.theme.text};
-
+  ${'' /* border-bottom: 1px solid #1b1b1b; */}
   padding: 7px 20px;
   margin-bottom: 5px;
   align-items: center;
   transition: .3s;
   &:hover{
-    background-color:${p=>p.theme.text};
-    color:black;
+    color: #1b1b1b;
   }
 `;
 

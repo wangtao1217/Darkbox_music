@@ -12,6 +12,7 @@ const Log = () => {
   const log_dispatch = useContext(LogDispatch);
 
   const { show } = log_state;
+  console.log(phone);
 
   const handleLog = async () => {
     const result = await login({ phone, password });
@@ -46,7 +47,7 @@ const Log = () => {
       <span className="hide" />
       <button onClick={handleLog}>{"登录"}</button>
       <span className="close" onClick={() => log_dispatch({ type: "SHOW" })}>
-        <i class="fas fa-times"></i>
+        <i className="fas fa-times"></i>
       </span>
     </Log_Container>
   );

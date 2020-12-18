@@ -6,6 +6,7 @@ import {
   playHistory,
   setPlayHistory,
   playList as playLocalList,
+  setPlayList,
   MODE,
 } from "../assets/play";
 
@@ -36,6 +37,7 @@ export const musicReducer = (state, action) => {
       }
       
       setPlayHistory(load.music);
+      setPlayList(load.playList);
 
       return {
         ...state,

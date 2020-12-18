@@ -8,7 +8,7 @@ import {
 } from "../../reducer/playMusic";
 import Container from "./styles";
 import Table from "../table/index";
-import { Mycontext } from "../../assets/global_state"
+import { Mycontext } from "../../assets/global_state";
 
 import { createMusic } from "../../assets/createMusic";
 
@@ -17,7 +17,7 @@ export const MusicList = ({ data, s_column }) => {
     {
       title: "🚩",
       flex: null,
-      width: "30px",
+      width: "20px",
       render: ({ item, key }) => {
         return key;
       },
@@ -42,7 +42,7 @@ export const MusicList = ({ data, s_column }) => {
       render: () => {},
     },
   ];
-  const { result } = useContext(Mycontext)
+  const { result } = useContext(Mycontext);
 
   const state = useContext(M_StateContext);
   const dispatch = useContext(M_DispatchContext);
@@ -51,13 +51,8 @@ export const MusicList = ({ data, s_column }) => {
     column = s_column;
   }
 
-  const DoubleClick =  (item) => {
+  const DoubleClick = (item) => {
     let { picUrl } = item;
-    // if (!picUrl) {
-    //   const result = await Album.getAlbum(item.album.id);
-    //   picUrl = result?.album.blurPicUrl;
-    // }
-    // console.log()
     dispatch({
       type: ACTION.PLAY,
       load: {
@@ -67,13 +62,14 @@ export const MusicList = ({ data, s_column }) => {
           picUrl,
           duration: item.dt / 1000,
         }),
+        playList: data,
       },
     });
   };
   return (
     <Container>
       <Table
-        data={data?data:result}
+        data={data ? data : result}
         DoubleClick={DoubleClick}
         column={column}
       />

@@ -1,10 +1,10 @@
-import React, {  useContext } from "react";
+import React, { useContext, useState, useRef, useCallback } from "react";
 
 import { MusicInfo } from "./MusicInfo";
 import Time from "./range/index";
 import { Main } from "./styled";
-import Music_list from "./range/music_list";
 import Icon from "../icon/index";
+import { PlayRecord } from "./play_record/index";
 
 import {
   M_StateContext,
@@ -13,34 +13,51 @@ import {
 } from "../../reducer/playMusic";
 
 export default (props) => {
+  const [move, setMove] = useState(false);
+  const [screen, setScreen] = useState(false);
   const audioInfo = useContext(AudioContext);
   const { state: audioState, controls } = audioInfo;
 
   const state = useContext(M_StateContext);
-  const { music } = state;
+  const { music, musicId } = state;
   const dispatch = useContext(M_DispatchContext);
   const song = music ? music.al : null;
 
   // console.log(music);
   // console.log(audioState);
-  const move = React.useRef(false)
-  const handleMove = () => move.current = move.current?false:true;
+  const handleMove = useCallback(() => setMove(!move), [move]);
+  const handleScreen = useCallback(() => setScreen(!screen), [screen]);
   return (
-    <Main show={music}>
-      {music ? (
-        <>
-          <MusicInfo
-            name={!song ? null : music.name}
-            picUrl={!song ? null : song.picUrl}
-            ar={!song ? null : music.ar}
-          />
-          <Time music={music} audioState={audioState} controls={controls} />
-        </>
-      ) : (
-        ":) 盒子里还没有音乐哦..."
-      )}
-      <Icon name="list"  onClick={()=>handleMove()}/>
-      {/* <Music_list move={move} /> */}
-    </Main>
+    <div>
+      <Main show={music} move={move}>
+        {music ? (
+          <>
+            <MusicInfo
+              name={!song ? null : music.name}
+              picUrl={!song ? null : song.picUrl}
+              ar={!song ? null : music.ar}
+              move={move}
+              onClick={handleScreen}
+            />
+            <Time
+              music={music}
+              musicId={musicId}
+              audioState={audioState}
+              controls={controls}
+              dispatch={dispatch}
+            />
+          </>
+        ) : (
+          ":) 盒子里还没有音乐哦..."
+        )}
+        <span className='icon'>
+          <Icon name="like" onClick={handleScreen} />
+        </span>
+        <span className='icon'>
+          <Icon name="album" onClick={handleMove} />
+        </span>
+      </Main>
+      <PlayRecord move={move} />
+    </div>
   );
 };

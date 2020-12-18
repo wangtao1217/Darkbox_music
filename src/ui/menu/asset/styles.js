@@ -11,7 +11,7 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   transition: 0.5s;
-  background-color: ${(p) => p.theme.bgColor};
+  background-color: ${(p) => p.theme.secondary};
   transform: translateX(${(p) => (p.show ? 0 : -300)}px);
   box-sizing: border-box;
 
@@ -25,7 +25,7 @@ const Div = styled.div`
     bottom: 0;
     right: -10px;
     width: 10px;
-    background-color: red;
+    ${'' /* background-color: red; */}
     z-index: 100;
   }
 `;
@@ -34,7 +34,8 @@ const Ul = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-  padding: 20px 0;
+  padding: 20px 30px;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   user-select: none;
@@ -49,10 +50,11 @@ const Li = styled.li`
   padding: 18px 16px;
   ${"" /* margin: ; */}
   list-style: none;
-  color: ${(p) => p.theme.text};
+  color: ${(p) => p.focus?p.theme.text:p.theme.sec_text};
   font-size: 0.9em;
   cursor: pointer;
   transition: 0.3s;
+
 
   section {
     display: inline;
@@ -62,9 +64,9 @@ const Li = styled.li`
     text-overflow: ellipsis;
   }
   &:hover {
-    color: black;
-    background-color: #f4f4f4;
-    border-radius: 2px;
+    color: white;
+    ${'' /* background-color: #f4f4f4; */}
+    ${'' /* border-radius: 2px; */}
   }
 `;
 

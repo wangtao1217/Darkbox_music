@@ -21,7 +21,7 @@ const Creator = (props) => {
       );
     } else if (item.type === "sub") {
       return (
-        <Subitem val={item.name} icon={() => <Icon />}>
+        <Subitem key={item.name} val={item.name} icon={() => <Icon />}>
           {Creator(item.child)}
         </Subitem>
       );

@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useCallback, useContext } from "react";
 
 import { Div, Span } from "./styled";
-import Music_list from "./music_list";
 import Icon from "../../icon/index";
 import Range from "./range";
 import { playList as playListLocalStorage, playHistory } from "../../../assets/play";
@@ -13,13 +12,13 @@ import { ACTION, M_DispatchContext } from "../../../reducer/playMusic";
 
 // }
 
-const Time = ({ music, audioState, controls }) => {
+const Time = ({ music,musicId, audioState, controls }) => {
   const [move, setMove] = useState(false);
 
   const { playing, time } = audioState;
   const dispatch = useContext(M_DispatchContext)
-  const playList = useMemo(() => playHistory.getItem(), [
-    music.musicId,
+  const playList = useMemo(() => playListLocalStorage.getItem(), [
+    musicId,
   ]);
 
   const togPlay = useCallback(() => {
@@ -27,22 +26,20 @@ const Time = ({ music, audioState, controls }) => {
   }, [controls, playing]);
 
   const play = useCallback((pre) => {
-    console.log('music.musicId...')
-    const len = playList.length;
+      const len = playList.length;
       if (!len) return;
 
-      const index = playList.findIndex(({ id }) => id === music.musicId);
+      const index = playList.findIndex(({ id }) => id === musicId);
       let nextIndex = -1;
-
       if (index > -1) {
         nextIndex = pre ? (index - 1 + len) % len : (index + 1) % len;
       } else {
         nextIndex = 0;
       }
-      console.log(music.musicId)
       dispatch({
         type: ACTION.PLAY,
         load: {
+          playList: playList,
           musicId: playList[nextIndex].id,
           music: playList[nextIndex],
         },
@@ -51,9 +48,7 @@ const Time = ({ music, audioState, controls }) => {
     [music]
   );
 
-  const pre = useCallback(() => {
-    console.log(playList)
-    play(true)}, [play]);
+  const pre = useCallback(() => play(true), [play]);
   const next = useCallback(() => play(), [play]);
 
   if (!music) return null;
@@ -83,7 +78,6 @@ const Time = ({ music, audioState, controls }) => {
           <section>{`${min}:${sec}`}</section>
         </Div>
         {/* <Icon name="list" onClick={(e) => setMove(move ? false : true)} /> */}
-        {/* <Music_list move={move} /> */}
       </Global>
     </>
   );

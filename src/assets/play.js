@@ -36,3 +36,7 @@ export const playList = LocalStorageFactory({
     key: KEY.PLAY_LIST,
     defaultvalue: DEFAULT_VALUE.ARRAY
 })
+
+export const setPlayList = data => {
+    playList.setItem(data?data:[])
+}

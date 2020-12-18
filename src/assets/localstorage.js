@@ -13,7 +13,6 @@ export const LocalStorageFactory = (params) => {
     };
 
     const getItem = () => {
-        console.log(localStorage.getItem(key));
         const list = window.localStorage.getItem(key) || defaultvalue;
         return parse(list);
     }

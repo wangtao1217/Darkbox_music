@@ -9,6 +9,7 @@ const Div = styled.div`
   justify-content:center;
   color: white;
   font-size: 0.8em;
+  ${'' /* justify-self: center; */}
 `;
 
 const Span = styled.div`
@@ -67,8 +68,8 @@ const Point = styled.div`
 `;
 
 const Play_list = styled.div`
-  display:flex;
-  position:static;
+  ${'' /* display:flex; */}
+  position:fixed;
   height:90vh;
   width:30vw;
   flex-direction:column;

@@ -40,7 +40,7 @@ const Discover = () => {
   return (
     <>
       <Container>
-        <New_Container>
+        {/* <New_Container>
           <header>"header"</header>
           <section>
             <span className="image" />
@@ -48,7 +48,7 @@ const Discover = () => {
            <MusicList data={list} column={column} />
            </span>
           </section>
-        </New_Container>
+        </New_Container> */}
         <section>
           <h1 className='recommand'>{"推荐歌单"}</h1>
           {data?<Album_List data={data} />:<h3>{"音乐正在路上哦🙂"}</h3>}
