@@ -1,9 +1,4 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-## 应用技术：
-1. Javascript, Html, Css
-2. React(hooks), React-router
-4. styled-components
-5. axios(处理请求)
 ## Available Scripts
 
 In the project directory, you can run:
