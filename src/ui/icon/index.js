@@ -7,8 +7,7 @@ const Item = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  margin: ${(props) => (props.margin ? props.margin : "0px")};
+  margin: ${a => a.m?a.m:0};
   i{
     font-size:  14px;
   ${'' /* color: ${(props) => props.theme.text}; */}
@@ -17,9 +16,8 @@ const Item = styled.div`
 `;
 
 export default (props) => {
-  const { name } = props;
+  const { name, m } = props;
   const icon = {
-    // home: ,
     like:"fas fa-star",
     album: "fas fa-record-vinyl",
     play: "fas fa-play" ,
@@ -27,9 +25,8 @@ export default (props) => {
     pre: "fas fa-step-backward" ,
     next: "fas fa-step-forward" ,
     search: "fad fa-repeat" ,
-    // mode:{repeat:,},
   };
-  return <Item onClick={()=>{
+  return <Item m={m} onClick={()=>{
    props.onClick()
   }}>
     <i className={icon[name]}></i>

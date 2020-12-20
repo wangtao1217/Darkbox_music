@@ -1,10 +1,11 @@
-import React, { useContext, useState, useRef, useCallback } from "react";
+import React, { useContext, useState, useCallback } from "react";
 
 import { MusicInfo } from "./MusicInfo";
 import Time from "./range/index";
-import { Main } from "./styled";
+import { Main, Root, Span } from "./styled";
 import Icon from "../icon/index";
 import { PlayRecord } from "./play_record/index";
+import Lyric from "./lyric/index";
 
 import {
   M_StateContext,
@@ -23,41 +24,40 @@ export default (props) => {
   const dispatch = useContext(M_DispatchContext);
   const song = music ? music.al : null;
 
-  // console.log(music);
-  // console.log(audioState);
   const handleMove = useCallback(() => setMove(!move), [move]);
   const handleScreen = useCallback(() => setScreen(!screen), [screen]);
   return (
-    <div>
-      <Main show={music} move={move}>
-        {music ? (
-          <>
-            <MusicInfo
-              name={!song ? null : music.name}
-              picUrl={!song ? null : song.picUrl}
-              ar={!song ? null : music.ar}
-              move={move}
-              onClick={handleScreen}
-            />
-            <Time
-              music={music}
-              musicId={musicId}
-              audioState={audioState}
-              controls={controls}
-              dispatch={dispatch}
-            />
-          </>
-        ) : (
-          ":) 盒子里还没有音乐哦..."
-        )}
-        <span className='icon'>
-          <Icon name="like" onClick={handleScreen} />
-        </span>
-        <span className='icon'>
-          <Icon name="album" onClick={handleMove} />
-        </span>
-      </Main>
+    <>
+      <Root screen={screen} show={music} move={move}>
+        <Main show={music} move={move}>
+          {music ? (
+            <>
+              <MusicInfo
+                name={!song ? null : music.name}
+                picUrl={!song ? null : song.picUrl}
+                ar={!song ? null : music.ar}
+                show_lyric={screen}
+                onClick={handleScreen}
+              />  
+              <Time
+                music={music}
+                musicId={musicId}
+                audioState={audioState}
+                controls={controls}
+                dispatch={dispatch}
+              />
+            </>
+          ) : (
+            ":) 盒子里还没有音乐哦..."
+          )}
+          <Span flex={2} position='flex-start'>
+            <Icon name="like" m='0 7.5px 0 0' onClick={handleScreen} />
+            <Icon name="album" m='0 7.5px 0 0' onClick={handleMove} />
+          </Span>
+        </Main>
+        <Lyric musicId={musicId} />
+      </Root>
       <PlayRecord move={move} />
-    </div>
+    </>
   );
 };

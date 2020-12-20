@@ -3,8 +3,8 @@ import styled from "styled-components";
 const Div = styled.div`
   width: 50%;
   display: flex;
-  margin: 0 2%;
-  margin-right:20px;
+  flex: 6;
+  margin: 0 10px;
   align-items: center;
   justify-content:center;
   color: white;
@@ -31,7 +31,7 @@ const Span = styled.div`
 const Back = styled.div`
   height: 6px;
   width: 100%;
-  margin: 0 20px;
+  margin: 0 10px;
   background-color: rgba(50,50,50,.2);
   max-width: 100%;
   border-radius: 3px;

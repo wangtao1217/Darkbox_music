@@ -4,12 +4,12 @@ const margin = 20;
 const padding = margin * 2;
 
 const New_Container = styled.section`
-box-sizing:border-box;
+  box-sizing:border-box;
   padding:15px 15px;
   width: 100%;
   background-color:white;
   section{
-   display:flex;
+    display:flex;
     height:200px;
     width:100%;
     background-color:black;
@@ -56,7 +56,6 @@ const Span = styled.div`
   transition: 0.4s;
   user-select: none;
   cursor: pointer;
-  border-radius:7px;
   &:hover {
     box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.3);
     transform: scale(1.06);

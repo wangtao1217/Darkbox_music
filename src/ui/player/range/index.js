@@ -1,9 +1,13 @@
 import React, { useState, useMemo, useCallback, useContext } from "react";
 
-import { Div, Span } from "./styled";
+import { Div } from "./styled";
+import { Span } from "../styled";
 import Icon from "../../icon/index";
 import Range from "./range";
-import { playList as playListLocalStorage, playHistory } from "../../../assets/play";
+import {
+  playList as playListLocalStorage,
+  playHistory,
+} from "../../../assets/play";
 
 import { formatTime } from "../../../helper/time";
 import { Global, Mycontext } from "../../../assets/global_state";
@@ -12,20 +16,17 @@ import { ACTION, M_DispatchContext } from "../../../reducer/playMusic";
 
 // }
 
-const Time = ({ music,musicId, audioState, controls }) => {
-  const [move, setMove] = useState(false);
-
+const Time = ({ music, musicId, audioState, controls }) => {
   const { playing, time } = audioState;
-  const dispatch = useContext(M_DispatchContext)
-  const playList = useMemo(() => playListLocalStorage.getItem(), [
-    musicId,
-  ]);
+  const dispatch = useContext(M_DispatchContext);
+  const playList = useMemo(() => playListLocalStorage.getItem(), [musicId]);
 
   const togPlay = useCallback(() => {
     !playing ? controls.play() : controls.Pause();
   }, [controls, playing]);
 
-  const play = useCallback((pre) => {
+  const play = useCallback(
+    (pre) => {
       const len = playList.length;
       if (!len) return;
 
@@ -61,15 +62,19 @@ const Time = ({ music,musicId, audioState, controls }) => {
   return (
     <>
       <Global>
-        <Span>
-          <Icon name="pre" onClick={pre} />
-          <Icon name={playing ? "stop" : "play"} onClick={() => togPlay()} />
-          <Icon name="next" onClick={next} />
+        <Span position="flex-end">
+          <Icon name="pre" m="0 0 0 5px" onClick={pre} />
+          <Icon
+            name={playing ? "stop" : "play"}
+            m="0 0 0 5px"
+            onClick={() => togPlay()}
+          />
+          <Icon name="next" m="0 0 0 5px" onClick={next} />
         </Span>
         <Div>
           <section>{`${curMin}:${curSec}`}</section>
           <Range
-            time={time}
+            // time={time}
             value={Math.round(time)}
             min={0}
             max={duration}
@@ -77,38 +82,9 @@ const Time = ({ music,musicId, audioState, controls }) => {
           />
           <section>{`${min}:${sec}`}</section>
         </Div>
-        {/* <Icon name="list" onClick={(e) => setMove(move ? false : true)} /> */}
       </Global>
     </>
   );
 };
 
 export default Time;
-
-// const play = useCallback(
-//   (prev?: boolean) => {
-//     const len = playList.length
-//     if (!len) {
-//       return
-//     }
-
-//     const index = playList.findIndex(({ id }) => id === musicId)
-//     let nextIndex = -1
-
-//     if (index > -1) {
-//       nextIndex = prev ? (index - 1 + len) % len : (index + 1) % len
-//     } else {
-//       nextIndex = 0
-//     }
-
-//     dispatch({
-//       type: ACTIONS.PLAY,
-//       payload: {
-//         musicId: playList[nextIndex].id,
-//         music: playList[nextIndex],
-//       },
-//     })
-
-//   },
-//   [playList, musicId, dispatch],
-// )

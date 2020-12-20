@@ -1,12 +1,13 @@
 
 import axios from '../assets/axios';
 
- const getSongs = async (id) => {
+ const getLyric = async (id) => {
     const response = await axios({
         url: '/lyric',
         params: { id }
     })
-    return response.songs;
+    const lyric = response?.lrc?.lyric
+    return lyric;
 };
 
-export default getSongs
+export default getLyric

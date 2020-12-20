@@ -45,9 +45,9 @@ const Ul = styled.div`
 const Li = styled.li`
   display: flex;
   position: relative;
-  width: 300px;
+  width: 240px;
   box-sizing: border-box;
-  padding: 18px 16px;
+  padding: 18px 15px;
   ${"" /* margin: ; */}
   list-style: none;
   color: ${(p) => p.focus?p.theme.text:p.theme.sec_text};

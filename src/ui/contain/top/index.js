@@ -3,29 +3,42 @@ import React, { useContext } from "react";
 import Search from "./search";
 import { Top } from "./styled.js";
 import Log from "../../log/index";
+import { Span } from '../../layout/styles'
 
 import { LogContext, LogDispatch } from "../../../reducer/log";
-import { get_user_album } from '../../../api/user'
 
 export default (props) => {
   const log_state = useContext(LogContext);
   const log_dispatch = useContext(LogDispatch);
 
   const { show, islogged, user } = log_state;
-  const { avatarUrl, city, nickname, playlistCount, vipType, userId } = user.profile;
-  let a = get_user_album(user.account.id)
-  console.log(a)
+  const {
+    avatarUrl,
+    city,
+    nickname,
+    playlistCount,
+    vipType,
+    userId,
+  } = user.profile;
+
   return (
     <Top url={avatarUrl}>
-      <Search />
+      <Span>
+        <button>{"<"}</button>
+        <button>{">"}</button>
+      </Span>
+      <Span flex={6}>
+        <Search />
+      </Span>
       {islogged ? (
-        <div className="user">
-        <p>{nickname}</p>
-          <span className="avatar"/>
-        </div>
+        <Span>
+          <div className="user">
+            <p>{nickname}</p>
+            <span className="avatar" />
+          </div>
+        </Span>
       ) : (
-        <p  className="log_in"
-            onClick={() => log_dispatch({ type: "SHOW" })}>
+        <p className="log_in" onClick={() => log_dispatch({ type: "SHOW" })}>
           {"登录"}
         </p>
       )}

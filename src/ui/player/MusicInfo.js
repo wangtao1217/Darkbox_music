@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from "react";
 
-import { Container } from "./styled";
+import { Container, Span } from "./styled";
 
-export const MusicInfo = ({ name, picUrl, ar, move }) => {
+export const MusicInfo = ({ name, picUrl, ar, show_lyric  }) => {
   const [loaded, setLoaded] = useState(true);
 
   const author = (arr) => {
@@ -15,14 +15,16 @@ export const MusicInfo = ({ name, picUrl, ar, move }) => {
   };
 
   return (
-    <Container picUrl={picUrl} move={move}>
-      <>
-        <span className="pic" />
-        <span className="text">
-          <p className="name">{name}</p>
-          <p>{author(ar)}</p>
-        </span>
-      </>
+    <Container picUrl={picUrl} >
+      {show_lyric ? null : (
+        <>
+          <span className="pic" />
+          <span className="text">
+            <p className="name">{name}</p>
+            <p>{author(ar)}</p>
+          </span>
+        </>
+      )}
     </Container>
   );
 };

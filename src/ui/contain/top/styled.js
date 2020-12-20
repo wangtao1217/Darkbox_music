@@ -6,9 +6,8 @@ const Top = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  height: 60px;
-  padding: 10px 7px;
+  height: 50px;
+  padding: 0 7px ;
   box-sizing: border-box;
   user-select: none;
   width: 100%;
@@ -49,40 +48,19 @@ const Top = styled.div`
   }
 `;
 
-const Span = styled.div`
-  display: flex;
-  ${
-    "" /* .input {
-    z-index:10;
-    float: left;
-    position: ${(p) => (p.focus ? "absolute" : null)};
-    color: ${(p) => p.theme.primary};
-    height: 36px;
+const Input = styled.input`
     display: flex;
-    flex-wrap: nowrap;
-    height: ${(p) => (p.focus ? "300px" : "auto")};
-    width: ${(p) => (p.focus ? "300px" : "auto")};
-    background-color: ${(p) => (p.focus ? p.theme.compare : null)};
-    transition: 0.6s;
-  } */
-  }
-  input {
-    display: flex;
-    ${"" /* align-items: center; */}
-    height: 36px;
-    padding: 5px 16px;
-    min-width: 220px;
+    width: 60%;
+    height: 100%;
+    padding: 10px 16px;
     box-sizing: border-box;
-    border-radius: 6px;
     margin: 0 15px;
-    margin-left: 150px;
     outline: none;
     border: none;
     font-size: 1.2em;
-    color: ${(props) => props.theme.secondary};
+    color: white;
+    background-color: ${a=>a.focus?'white':'rgba(0,0,0,0)'};
     transition: 0.4s;
-    border-bottom: 2px #e3e3e3 solid;
-  }
 `;
 
-export { Top, Span };
+export { Top, Input };
