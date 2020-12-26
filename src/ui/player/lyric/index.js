@@ -47,11 +47,10 @@ const Lyric = ({ musicId }) => {
 
   return (
     <Div ref={(ref) => (lyric_ref.current = ref)} height={height}>
-      <h1>{musicId}</h1>
       {lyric.length > 0 ? (
         lyric.map(([time, lyr], index) => {
           return (
-            <span key={time} className={index === line ? "emphasis" : "null"}>
+            <span key={index} className={index === line ? "emphasis" : "null"}>
               <p>{lyr}</p>
             </span>
           );

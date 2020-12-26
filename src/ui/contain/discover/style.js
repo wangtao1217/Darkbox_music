@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
+
 const margin = 20;
 const padding = margin * 2;
 
 const New_Container = styled.section`
   box-sizing:border-box;
-  padding:15px 15px;
+  padding:10px 10px;
   width: 100%;
   background-color:white;
   section{
@@ -25,13 +26,33 @@ const New_Container = styled.section`
 const Album_Container = styled.div`
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(${p => p.fit?4:5}, 1fr);
   justify-content: space-evenly;
-  column-gap: 20px;
+  column-gap: 15px;
   height: auto;
   .recommand {
     background-color: red;
     color: red;
+  }
+  @media screen and (max-width:1200px){
+    &{
+      grid-template-columns: repeat(${p => p.fit?3:4}, 1fr);
+    }
+  }
+  @media screen and (max-width:900px){
+    &{
+      grid-template-columns: repeat(${p => p.fit?2:3}, 1fr);
+    }
+  }
+  @media screen and (max-width:700px){
+    &{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (max-width:500px){
+    &{
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 `;
 
@@ -77,6 +98,8 @@ const Span = styled.div`
       margin: 5px;
       box-sizing:border-box;
       font-size:90%;
+      
+      }
     }
   }
 

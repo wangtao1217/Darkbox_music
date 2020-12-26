@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import { getDiscover } from "../../../api/discover";
@@ -11,48 +11,27 @@ import { MusicList } from "../../contain/MusicList";
 import { New_Container } from "./style";
 
 const Discover = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
+  const [load, setLoad] = useState(0);
 
-  useEffect(() => {
-    getDiscover().then((res) => setData(res));
+  const loadMore = useCallback(() => {
+    setLoad((i) => (i += 1));
   }, []);
-
-  console.log(data);
-
-  const list = [
-    { name: "hello..." },
-    { name: "hello..." },
-    { name: "hello..." },
-    { name: "hello..." },
-    { name: "hello..." },
-    { name: "hello..." },
-    { name: "hello..." },
-    { name: "hello..." },
-    { name: "hello..." },
-  ];
-
-  const column = [
-    { title: "name", render: () => "hello" },
-    { title: "artist", render: () => "somebody" },
-    { title: "time", render: () => "02:23" },
-  ];
-
+  useEffect(() => {
+    getDiscover(data.length + 21).then((res) => {
+      setData((pre) => pre.concat(res.slice(data.length , res.length-1)));
+    });
+    console.log(data);
+  }, [load, window.onload]);
   return (
     <>
       <Container>
-        {/* <New_Container>
-          <header>"header"</header>
-          <section>
-            <span className="image" />
-           <span className="list">
-           <MusicList data={list} column={column} />
-           </span>
-          </section>
-        </New_Container> */}
         <section>
-          <h1 className='recommand'>{"推荐歌单"}</h1>
-          {data?<Album_List data={data} />:<h3>{"音乐正在路上哦🙂"}</h3>}
-          <button>{"Get more"}</button>
+          <h1 className="recommand">{"推荐歌单"}</h1>
+          {data ? <Album_List data={data} /> : <h3>{"音乐正在路上哦🙂"}</h3>}
+          <div className="load_more" onClick={loadMore}>
+            {"更多更多(☆▽☆)..."}
+          </div>
         </section>
       </Container>
     </>

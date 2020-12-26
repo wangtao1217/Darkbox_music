@@ -1,8 +1,9 @@
-import React, { useReducer, useContext, useCallback, useMemo, useEffect } from "react";
+import React, { useReducer, useCallback, useMemo } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import { Global } from "./assets/global_state.js";
 import { logReducer, LogContext, LogDispatch, initial } from "./reducer/log";
+import { toggle_initial, ToggleState, ToggleDispatch, toggle_reducer } from "./reducer/toggleState";
 import Routes from "./assets/routes"
 
 import useAudio from "./hooks/useAudio";
@@ -26,14 +27,11 @@ import Like from "./ui/contain/like";
 import { MusicList } from "./ui/contain/MusicList";
 
 const App = (props) => {
-  //  登录注册状态
   const [logstate, logDispatch] = useReducer(logReducer, initial);
-
-  //  音乐状态
   const [state, dispatch] = useReducer(musicReducer, initialState);
+  const [toggle_state, toggle_dispatch] = useReducer(toggle_reducer, toggle_initial);
   const { musicId, musicUrl, playMode } = state;
 
-console.log(state)
   const playList = playListLocalStorage.getItem();
 
   const [audio, audioState, audioControls, audioRef] = useAudio({
@@ -42,7 +40,6 @@ console.log(state)
   });
 
 
-// console.log(state)
   const audioInfo = useMemo(() => {
     return {  
       audio,
@@ -71,8 +68,6 @@ console.log(state)
       case MODE.REPEAT:
     }
   }, [playMode, MODE]);
-  console.log(audio);
-
   return (
     <Router>
       <Global>
@@ -81,8 +76,10 @@ console.log(state)
             <M_DispatchContext.Provider value={dispatch}>
               <M_StateContext.Provider value={state}>
                 <AudioContext.Provider value={audioInfo}>
+                <ToggleState.Provider value={toggle_state}>
+                <ToggleDispatch.Provider value={toggle_dispatch}>
                   <Main>
-                    <Top_container>
+                    <Top_container value={initial}>
                       <Menu />
                       <Second className="body">
                         <Top />
@@ -108,6 +105,8 @@ console.log(state)
                     </Top_container>
                     <Player />
                   </Main>
+                </ToggleDispatch.Provider >
+                  </ToggleState.Provider>
                 </AudioContext.Provider>
               </M_StateContext.Provider>
             </M_DispatchContext.Provider>

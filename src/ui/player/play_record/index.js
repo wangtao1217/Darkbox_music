@@ -5,7 +5,7 @@ import { MusicList } from "../../contain/MusicList";
 
 import { M_StateContext } from '../../../reducer/playMusic'
 import { playList as PlayListStorage, playHistory } from '../../../assets/play'
-
+import useClickAway from "../../../hooks/useClickAway"
 
 
 export const PlayRecord = ({ move }) => {
@@ -13,8 +13,9 @@ export const PlayRecord = ({ move }) => {
     const state = useContext(M_StateContext)
     const play_list =  PlayListStorage.getItem()
     const play_history = playHistory.getItem()
+    const away_ref = React.useRef();
 
-
+      useClickAway(away_ref, () => {if(move){alert('dd')}}, [ 'click' ])
 
     const column = [
         {
@@ -33,7 +34,7 @@ export const PlayRecord = ({ move }) => {
 
 
     return (
-    <Container move={move}>
+    <Container ref={away_ref} move={move}>
       {"Hello"}
       <section>
         {active ? <MusicList  data={play_list} s_column={column} /> : "hello"}

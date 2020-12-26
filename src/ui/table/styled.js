@@ -26,25 +26,29 @@ const ImagContainer = styled.div`
 const Body = styled.div`
 `;
 const Row = styled.div`
+  cursor: pointer;
   display: flex;
   height: 40px;
   box-sizing:border-box;
   color: ${(p) => p.theme.text};
-  ${'' /* border-bottom: 1px solid #1b1b1b; */}
   padding: 7px 20px;
   margin-bottom: 5px;
   align-items: center;
   transition: .3s;
   &:hover{
-    color: #1b1b1b;
+    background-color: rgba(50,50,50,.6);
+    ${'' /* background-color: #1a1a1a; */}
   }
 `;
 
 const Cell = styled.span`
   display: flex;
   flex: ${(p) => p.flex?p.flex:"1"};
+  margin: 0 10px;
   text-overflow:ellipsis;
   white-space:nowrap;
   overflow:hidden;
+  font-size: 0.9rem;
+  user-select: none;
 `;
 export { Head, Task, Container, Row, Body, Cell, ImagContainer };

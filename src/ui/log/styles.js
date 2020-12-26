@@ -23,7 +23,7 @@ const Log_container = styled.div`
         background-color: ${p=>p.theme.bgColor};
         padding: 21px 18px;
         margin-bottom:24px;
-        color: white;
+        color: #1b1b1b;
        
     }
     .hide{

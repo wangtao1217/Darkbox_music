@@ -7,8 +7,10 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  padding-bottom: 20px;
+  box-sizing: border-box;
   section {
-    flex: 6.5;
+    width: 70%;
   }
 `;
 
@@ -23,15 +25,26 @@ const Info_Container = styled.div`
   margin: 20px 0;
   box-sizing: border-box;
   .album_pic {
+  position: relative;
     background-image: url(${(p) => p.url});
     background-size: cover;
-    border-radius: 7px;
+    ${'' /* border-radius: 7px; */}
+    transform: scale(${p => p.hovered?1.1:1});
     background-color: white;
     height: ${size};
     width: ${size};
+    ${'' /* &::before{
+      content: '';
+      position: absolute;
+      background-color: black;
+      height: ${p => p.enter?'100px':0};
+      width: 100%;
+    } */}
+   
+    }
   }
   .text {
-    margin: 18px 0px 20px 0px;
+    margin: 18px 0px 15px 0px;
     font-size: 1.2em;
     width: ${w};
     p {
@@ -44,10 +57,25 @@ const Info_Container = styled.div`
     opacity: 0.7;
     height: 100px;
     overflow: hidden;
+    margin-bottom: 20px;
     p {
       margin: 0;
     }
   }
+  .tags{
+      font-size: 10px;
+      display:  flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: ${w};
+      span{
+        display:  flex;
+        height: 14px;
+        border-radius: 9px;
+        background-color: rgba(50,50,50,.5);
+        padding: 2px 10px;
+        margin: 0 5px 0 0;
+      }
   button {
     position: absolute;
     left: -30px;

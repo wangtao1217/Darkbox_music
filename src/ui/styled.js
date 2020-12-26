@@ -12,18 +12,30 @@ const Main = styled.div`
     display: flex;
     height: calc(100% - 60px);
     width: 100%;
-    padding: 0 120px;
+    padding: 0 70px;
     box-sizing: border-box;
+  }
+  @media screen and (max-width: 1000px){
+    & #abc{
+      padding: 0 50px;
+    }
+  }
+  @media screen and (max-width: 600px){
+    & #abc{
+      padding: 0 20px;
+    }
   }
 `;
 
 const Second = styled.div`
-  transition: 1s;
+box-sizing: border-box;
   display: flex;
-  background-color: ${(p) => p.theme.primary};
+  flex:  1;
   flex-direction: column;
-  width: 100vw;
+  width: 0;
+  transition: .5s;
   color: ${(p) => p.theme.text};
+  background-color: ${(p) => p.theme.primary};
 `;
 
 const Top_container = styled.div`

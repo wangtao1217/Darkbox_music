@@ -3,16 +3,17 @@ import styled from "styled-components";
 const width = 26;
 
 const Div = styled.div`
-  position: absolute;
-  z-index: 100;
-  width: 300px;
+  position: ${p => p.fit?'static':'absolute'};
+  z-index:100;
+  width: 280px;
   height: 100%;
   left: 0px;
   display: flex;
+  flex: 0 0 300px;
   flex-direction: column;
   transition: 0.5s;
   background-color: ${(p) => p.theme.secondary};
-  transform: translateX(${(p) => (p.show ? 0 : -300)}px);
+  transform: translateX(${(p) => p.fit||(p.show ? 0 : -280)}px);
   box-sizing: border-box;
 
   .link {
@@ -23,10 +24,9 @@ const Div = styled.div`
     position: absolute;
     top: 0;
     bottom: 0;
-    right: -10px;
-    width: 10px;
-    ${'' /* background-color: red; */}
-    z-index: 100;
+    right: -20px;
+    width: 20px;
+    z-index: 200;
   }
 `;
 

@@ -19,7 +19,7 @@ const Album = ({ data }) => {
   }, []);
 
   return (
-    <Span  url={picUrl} onClick={handleClick} >
+    <Span  url={picUrl} onClick={handleClick} alt='sss'>
       <span className='card'  />
       <p className='text'>{name}</p>
     </Span>

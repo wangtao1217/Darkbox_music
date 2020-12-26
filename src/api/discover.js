@@ -1,10 +1,10 @@
 import axios from '../assets/axios';
 
-const getDiscover = async () => {
+const getDiscover = async (limit) => {
     const res = await axios({
         url:'/personalized',
         params: {
-            limit: 29
+            limit
         }})
     // }).then(response=>{
     //     console.log(response)

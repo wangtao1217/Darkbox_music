@@ -21,7 +21,7 @@ export const logReducer = (state, action) => {
         user: action.load.user,
       };
     case "LOG_OUT":
-      session.removeItem();
+      sessionStorage.removeItem();
 
       return {
         ...state,
