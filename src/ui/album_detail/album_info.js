@@ -21,24 +21,11 @@ const Album_info = ({ data }) => {
     subscribed,
   } = data;
 
-
-  
   const hovered = useHover(pic_ref);
 
-  console.log(data);
   return (
     <Info_Container hovered={hovered} url={coverImgUrl}>
-      <span ref={pic_ref} className="album_pic">
-        <span>
-          <Icon
-            name="like"
-            onClick={() => {
-              alert("...");
-              subscribed ? del_playList(id) : col_playList(id);
-            }}
-          />
-        </span>
-      </span>
+      <span ref={pic_ref} className="album_pic"></span>
       <span className="text">
         <p>{name}</p>
       </span>

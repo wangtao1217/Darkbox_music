@@ -13,7 +13,7 @@ const Div = styled.div`
     user-select: none;
     cursor: pointer;
     display: flex;
-    color: rgba(60, 60, 60, 0.7);
+    color: rgba(70, 70, 70, 0.7);
     justify-content: center;
     height: ${(i) => i.height}px;
     p {
@@ -21,7 +21,7 @@ const Div = styled.div`
     }
   }
   .emphasis {
-    color: rgba(220, 220, 220, 0.7);
+    color: rgba(220, 220, 220, 0.8);
   }
 `;
 

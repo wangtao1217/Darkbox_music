@@ -3,8 +3,6 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import Subitem from "./subitem";
 import Item from "./item";
 import Menu from "./menu";
-import useData from "./asset/data";
-import Icon from "../icon/index";
 import { Div } from "./asset/styles";
 import { get_user_album } from "../../api/user";
 import { LogContext } from "../../reducer/log";
@@ -41,7 +39,7 @@ const Creator = (props) => {
 
 const App = (props) => {
   const hover_ref = useRef();
-  const [fit, setFit] = useState(true)
+  const [fit, setFit] = useState(true);
   const [songlistState, getUserSonglistFn] = useAsyncFn(get_user_album);
   const log_state = useContext(LogContext);
   const toggle_state = useContext(ToggleState);
@@ -55,7 +53,6 @@ const App = (props) => {
       route: routes.discover,
     },
   ];
-
 
   useEffect(() => {
     if (islogged) {
@@ -94,12 +91,14 @@ const App = (props) => {
   }
 
   const show = useHover(hover_ref);
-  const handle_fix = () => toggle_dispatch({type: 'FIT'});
+  const handle_fix = () => toggle_dispatch({ type: "FIT" });
   return (
     <Div ref={hover_ref} show={show} fit={toggle_state.fit}>
-      <button onClick={handle_fix}>{"/"}</button>
+      <button onClick={handle_fix}>
+        {toggle_state.fit ? "float" : "fixed"}
+      </button>
       <Menu>{Creator(data)}</Menu>
-      {toggle_state.fit?null:<span></span>}
+      {toggle_state.fit ? null : <span></span>}
     </Div>
   );
 };

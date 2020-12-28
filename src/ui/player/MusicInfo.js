@@ -5,18 +5,16 @@ import author from "../../helper/author"
 
 
 export const MusicInfo = ({ name, picUrl, ar, show_lyric  }) => {
-  const [loaded, setLoaded] = useState(true);
-
-
+  const authors = author(ar)
   return (
     
     <Container picUrl={picUrl} >
       {show_lyric ? null : (
         <>
-          <span className="pic" />
+          <img src={picUrl} alt={name}/>
           <span className="text">
             <p className="name">{name}</p>
-            <p>{author(ar)}</p>
+            <p>{authors}</p>
           </span>
         </>
       )}

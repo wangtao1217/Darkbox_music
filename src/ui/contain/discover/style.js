@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-const margin = 20;
+const margin = 10;
 const padding = margin * 2;
 
 const New_Container = styled.section`
@@ -27,7 +27,6 @@ const Album_Container = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(${p => p.fit?4:5}, 1fr);
-  justify-content: space-evenly;
   column-gap: 15px;
   height: auto;
   .recommand {
@@ -74,16 +73,16 @@ const Span = styled.div`
   background-image: url(${(p) => p.url});
   background-size: 100%;
   background-position: bottom 0px left 0px;
-  transition: 0.4s;
+  transition: 0.3s;
   user-select: none;
   cursor: pointer;
   &:hover {
     box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.3);
-    transform: scale(1.06);
+    transform: scale(1.02);
   }
   }
 .text{
-  width:200px;
+  width:210px;
   padding: 2px 5px;
   margin: 0 auto;
   white-space: nowrap;

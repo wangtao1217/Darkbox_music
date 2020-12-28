@@ -15,8 +15,8 @@ const Root = styled.div`
   right: 0;
   height: ${(p) => (p.screen ? "100vh" : "80px")};
   width: 100vw;
-  background: rgba(40, 40, 40, 0.5);
-  backdrop-filter: blur(20px);
+  background: rgba(36, 36, 36, 0.5);
+  backdrop-filter: blur(36px);
   transform: translateY(${(p) => (p.show ? 0 : 80)}px);
   transition: 0.5s;
   overflow: hidden;
@@ -47,10 +47,9 @@ flex: 1;
 width: 0;
 
 align-items:center;
-.pic{
+img{
   height:60px;
   width:60px;
-  background-image:url(${(p) => p.picUrl});
   background-size:100%;
 }
 .text{
@@ -89,4 +88,12 @@ const Info_Span = styled.span`
   flex: 1;
   width: 0;
 `;
-export { Main, Container, Root, Span, Info_Span };
+
+const Image = styled.img`
+  position: fixed;
+  z-index: 600;
+  width: 100vw;
+  transform: translateY(${(p) => (p.screen ? "100vh" : 0)});
+  transition: 0.5s;
+`;
+export { Main, Container, Root, Span, Info_Span, Image };

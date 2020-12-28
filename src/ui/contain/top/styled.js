@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const size = 35;
+const size = 28;
 
 const Top = styled.div`
   display: flex;
@@ -11,7 +11,25 @@ const Top = styled.div`
   box-sizing: border-box;
   user-select: none;
   width: 100%;
-
+  button{
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    right: 10px;
+    top: 10px;
+    width:40px;
+    height:30px;
+    justify-content:center;
+    align-items:center;
+    border: none;
+    color: white;
+    background-color: rgba(90,90,120,.5); 
+    padding: 4px;
+    transition: .2s;
+    &:hover{
+    transform: scale(1.1);
+    }
+  }
   .user {
     display: flex;
     align-items: center;
@@ -71,15 +89,17 @@ const Top = styled.div`
 const Input = styled.input`
   display: flex;
   width: 60%;
-  height: 100%;
+  height: 30px;
   padding: 10px 16px;
   box-sizing: border-box;
-  margin: 0 15px;
+  margin: 0 12px;
+  margin-right: 0;
   outline: none;
   border: none;
-  font-size: 1.2em;
   color: white;
-  background-color: ${(a) => (a.focus ? "white" : "rgba(0,0,0,0)")};
+  ${'' /* background-color: ${(a) => (a.focus ? "white" : "rgba(0,0,0,0)")}; */}
+  background-color: rgba(90,90,120,.5); 
+
   transition: 0.4s;
 `;
 

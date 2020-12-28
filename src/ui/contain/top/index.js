@@ -11,14 +11,14 @@ import useHover from "../../../hooks/useHover";
 import { logout } from "../../../api/log";
 
 export default (props) => {
-  const history = useHistory()
+  const history = useHistory();
   const user_ref = useRef();
   const log_state = useContext(LogContext);
   const log_dispatch = useContext(LogDispatch);
 
   const drop = useHover(user_ref);
   const { show, islogged, user } = log_state;
-  
+
   const log_out = useCallback(() => {
     logout();
     log_dispatch({ type: "LOG_OUT" });
@@ -29,19 +29,19 @@ export default (props) => {
 
   return (
     <Top url={islogged ? user.profile.avatarUrl : null} drop={drop}>
-      <Span>
+      <Span></Span>
+      <Span flex={6}>
         <button onClick={handle_back}>{"<"}</button>
         <button onClick={handle_forward}>{">"}</button>
-      </Span>
-      <Span flex={6}>
         <Search />
+        <button onClick={handle_forward}>{"🔍"}</button>
       </Span>
       {islogged ? (
         <>
           <Span ref={user_ref}>
             <div className="user">
               <span className="avatar" />
-              <p>{islogged?user.profile.nickname:null}</p>
+              <p>{islogged ? user.profile.nickname : null}</p>
               <div className="drop_menu">
                 <span onClick={log_out}>退出登录</span>
               </div>

@@ -36,7 +36,7 @@ const Row = styled.div`
   align-items: center;
   transition: .3s;
   &:hover{
-    background-color: rgba(50,50,50,.6);
+    background-color: rgba(50,50,70,.6);
     ${'' /* background-color: #1a1a1a; */}
   }
 `;

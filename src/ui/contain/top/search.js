@@ -38,7 +38,8 @@ export default (props) => {
         onFocus={(e) => setFocus(true)}
         onBlur={(e) => setFocus(false)}
         onKeyPress={(e) => getSearch(e)}
-      />
+     />
+      
     </>
-  );
+  ); 
 };

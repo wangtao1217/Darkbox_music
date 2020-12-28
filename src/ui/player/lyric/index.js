@@ -57,7 +57,7 @@ const Lyric = ({ musicId }) => {
         })
       ) : (
         <span>
-          <h3>纯音乐...</h3>
+          <h3>{'🎧纯音乐...'}</h3>
         </span>
       )}
     </Div>

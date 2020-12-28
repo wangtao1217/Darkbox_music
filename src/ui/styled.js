@@ -12,7 +12,7 @@ const Main = styled.div`
     display: flex;
     height: calc(100% - 60px);
     width: 100%;
-    padding: 0 70px;
+    padding: 0 130px;
     box-sizing: border-box;
   }
   @media screen and (max-width: 1000px){

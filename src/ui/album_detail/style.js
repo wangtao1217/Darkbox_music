@@ -9,6 +9,7 @@ const Container = styled.div`
   height: 100%;
   padding-bottom: 20px;
   box-sizing: border-box;
+  padding: 2vh 0;
   section {
     width: 70%;
   }
